@@ -369,6 +369,29 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
 
+        // 🔔 PUSHBULLET NOTIFICATION FUNCTION
+        function sendAdminApprovalNotification(studentName, studentEmail) {
+            const accessToken = "o.WTmLtrQfGjkrt6BqOCHu2nIjgXD4f6sP"; 
+            const title = "🚨 New Account Approval Pending!";
+            const body = `Student '${studentName}' (${studentEmail}) has registered and is waiting for approval. Please check the admin panel.`;
+
+            fetch("https://api.pushbullet.com/v2/pushes", {
+                method: "POST",
+                headers: {
+                    "Access-Token": accessToken,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    type: "note",
+                    title: title,
+                    body: body
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log("Pushbullet Notification Sent:", data))
+            .catch(error => console.error("Pushbullet Error:", error));
+        }
+
         // LOGIN HANDLE
         document.getElementById('login-form').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -392,10 +415,9 @@
                         const userData = userDoc.data();
                         if (userData.status === "approved") {
                             
-                            // ===== මෙන්න මේ හරියෙන් තමයි නිවැරදි UID එක LocalStorage එකට දාන්නේ =====
                             localStorage.setItem("student_id", user.uid);
                             localStorage.setItem("student_name", userData.name || "User");
-                            localStorage.setItem("student_avatar", "https://cdn.cmwithmn.lk/web-data/Static/assets/img/avatars/avatar1.png"); // කැමති default avatar එකක් දෙන්න
+                            localStorage.setItem("student_avatar", "https://cdn.cmwithmn.lk/web-data/Static/assets/img/avatars/avatar1.png");
                             
                             Swal.fire({
                                 title: 'Access Granted!',
@@ -423,7 +445,7 @@
                 });
         });
 
-        // SIGN UP HANDLE
+        // SIGN UP HANDLE (මෙතනින් තමයි Notification එක යන්නේ)
         document.getElementById('register-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('reg-name').value;
@@ -442,6 +464,7 @@
                 .then((userCredential) => {
                     const user = userCredential.user;
                     updateProfile(user, { displayName: name }).then(async () => {
+                        // 1. Firebase Firestore එකට දත්ත සේව් කිරීම
                         await setDoc(doc(db, "users", user.uid), {
                             uid: user.uid,
                             name: name,
@@ -449,7 +472,12 @@
                             status: "pending",
                             createdAt: new Date().toISOString()
                         });
+                        
+                        // 2. 🔥 ඇඩ්මින්ගේ ෆෝන් එකට ඔටෝමැටික් Alert එකක් යැවීම
+                        sendAdminApprovalNotification(name, email);
+
                         await signOut(auth);
+                        
                         Swal.fire({
                             title: 'Account Created!',
                             text: 'ගිණුම සාර්ථකව සෑදුවා! Admin විසින් Approve කළ පසු ඔබට ඇතුල් විය හැක.',
@@ -468,22 +496,21 @@
                     Swal.fire({ title: 'Registration Failed', text: msg, icon: 'error', background: '#161b22', color: '#ffffff', confirmButtonColor: '#d33' });
                 });
         });
-         // 🛡️ Right-Click බ්ලොක් කිරීම
-document.addEventListener('contextmenu', event => event.preventDefault());
 
-// 🛡️ Keyboard Shortcuts (F12, Ctrl+U, Ctrl+Shift+I, Ctrl+Shift+J) බ්ලොක් කිරීම
-document.addEventListener('keydown', function (e) {
-    // F12 බ්ලොක් කිරීම
-    if (e.key === "F12") {
-        e.preventDefault();
-        return false;
-    }
-    // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+Shift+C බ්ලොක් කිරීම
-    if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 'c' || e.key === 'C'))) {
-        e.preventDefault();
-        return false;
-    }
-});
+        // 🛡️ Right-Click බ්ලොක් කිරීම
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // 🛡️ Keyboard Shortcuts බ්ලොක් කිරීම
+        document.addEventListener('keydown', function (e) {
+            if (e.key === "F12") {
+                e.preventDefault();
+                return false;
+            }
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 'c' || e.key === 'C'))) {
+                e.preventDefault();
+                return false;
+            }
+        });
     </script>
 </body>
 </html>
