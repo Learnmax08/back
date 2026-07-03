@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Classes</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W8DGMMKFPN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W8DGMMKFPN');
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/bootstrap/css/bootstrap.min.css?szsszzz">
+    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/css/style.css?sdrsselesdctszs">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/fonts/all.css">
+    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/css/animate.min.css"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="N.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="N.png">
+    
+    <script src="https://analytics.sdev.lk/api/script.js" data-site-id="b3e24a50835e" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+    body {
+        background-color: #0b0e14 !important;
+        color: #c9d1d9 !important;
+        overflow-x: hidden;
+    }
+    
+    /* --- 🛠️ Fixed Responsive Sidebar Configuration (No Scrollbars) --- */
+    .sider {
+        position: fixed !important;
+        top: 70px !important;
+        left: 0 !important;
+        width: 90px !important; 
+        height: calc(100vh - 70px) !important;
+        z-index: 1000;
+        background: rgba(13, 17, 23, 0.85) !important;
+        border-right: 1px solid #21262d;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease-in-out; 
+        overflow: hidden !important; 
+        box-sizing: border-box !important;
+    }
+
+    /* Sidebar Content Flexbox Layout */
+    .sider__main_content {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        height: 100% !important;
+        padding: 15px 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* බොත්තම් බහාලුම (Container) */
+    .sider__btn__container {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1vh !important; 
+        justify-content: flex-start !important;
+    }
+
+    /* Base Sidebar Link Style (Seamless Theme) */
+    .sider__main_content .nav__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto !important; 
+        border-radius: 12px;
+        background: #161b22;
+        border: 1px solid #30363d;
+        position: relative;
+        transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                    border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                    box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    
+    .sider__main_content .nav__link i {
+        font-size: 1.25rem;
+        color: #8b949e;
+        transition: color 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .sider__main_content .nav__link .nav__name {
+        display: none; 
+    }
+
+    .sider__main_content .nav__link:hover i,
+    .sider__main_content .nav__link.selected i {
+        transform: scale(1.12);
+    }
+/* පොදු Badge ਸਟਾਈල් */
+.badge-custom {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+/* FREE බැජ් එක සඳහා - කොළ පැහැති Glow එකක් */
+.badge-free {
+    background-color: #00e676;
+    color: #000000;
+    box-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+    border: 1px solid #00ff81;
+}
+
+/* PAID බැජ් එක සඳහා - තැඹිලි/රන්වන් පැහැති Glow එකක් */
+.badge-paid {
+    background-color: #ee067a;
+    color: #000000;
+    box-shadow: 0 0 12px rgba(172, 5, 116, 0.6);
+    border: 1px solid #ffaa33;
+    animation: pulseGlow 2s infinite alternative; /* සියුම්ව බැබළීමට */
+}
+
+/* Paid එක තවත් කැපී පෙනෙන්න පොඩි ඇනිමේෂන් එකක් */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 8px rgba(255, 145, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 18px rgba(255, 145, 0, 0.9);
+    }
+}
+    /* --- 👑 Content Wrapper --- */
+    #content-wrapper, 
+    .mb-5:not(.card), 
+    .mb-4:not(.card), 
+    .gaming-zone-title,
+    main,
+    .main-content {
+        margin-left: 110px !important; 
+        padding-left: 15px !important;  
+        padding-right: 15px !important;
+        transition: margin-left 0.3s ease-in-out !important;
+        box-sizing: border-box !important;
+    }
+
+    .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+/* FREE Badge එක Highlight කිරීමට */
+.badge.bg-success {
+    background: linear-gradient(135deg, #28a745, #1e7e34) !important;
+    color: #ffffff !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 5px 10px !important;
+    border-radius: 6px !important;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* PAID Badge එක Highlight කිරීමට */
+.badge.bg-danger {
+    background: linear-gradient(135deg, #d31629ea, #bd2130) !important;
+    color: #c21e1e !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 5px 10px !important;
+    border-radius: 6px !important;
+    box-shadow: 0 0 8px rgba(233, 7, 30, 0.4);
+    border: 1px solid rgba(179, 17, 17, 0.2) !important;
+}
+
+/* PENDING/ACTIVE වගේ වෙනත් තත්ත්වයන් සඳහා (අවශ්‍ය නම්) */
+.badge.bg-warning {
+    background: linear-gradient(135deg, #ffc107, #d39e00) !important;
+    font-weight: bold;
+    padding: 5px 10px !important;
+    border-radius: 6px !important;
+    box-shadow: 0 0 8px rgba(211, 159, 4, 0.4);
+}
+
+.badge.bg-info {
+    background: linear-gradient(135deg, #17a2b8, #117a8b) !important;
+    font-weight: bold;
+    padding: 5px 10px !important;
+    border-radius: 6px !important;
+    box-shadow: 0 0 8px rgba(10, 185, 212, 0.87);
+}
+    /* --- Individual Gaming RGB Glow Effects for Sidebar Buttons --- */
+    .nav__link__wrapper:hover .nav__link.sider__blue,
+    .nav__link__wrapper.selected .nav__link.sider__blue {
+        border-color: #00d2ff !important;
+        box-shadow: 0 0 18px rgba(0, 210, 255, 0.45);
+        background: rgba(0, 210, 255, 0.08) !important;
+    }
+    .nav__link__wrapper:hover .nav__link.sider__blue i,
+    .nav__link__wrapper.selected .nav__link.sider__blue i { 
+        color: #00d2ff !important; 
+        text-shadow: 0 0 10px rgba(0, 210, 255, 0.6);
+    }
+    .nav__link__wrapper:has(.sider__blue):hover::before,
+    .nav__link__wrapper.selected:has(.sider__blue)::before { background-color: #00d2ff; }
+
+    .nav__link__wrapper:hover .nav__link.sider__green,
+    .nav__link__wrapper.selected .nav__link.sider__green {
+        border-color: #00e676 !important;
+        box-shadow: 0 0 18px rgba(0, 230, 118, 0.45);
+        background: rgba(0, 230, 118, 0.08) !important;
+    }
+    .nav__link__wrapper:hover .nav__link.sider__green i,
+    .nav__link__wrapper.selected .nav__link.sider__green i { 
+        color: #00e676 !important; 
+        text-shadow: 0 0 10px rgba(0, 230, 118, 0.6);
+    }
+    .nav__link__wrapper:has(.sider__green):hover::before,
+    .nav__link__wrapper.selected:has(.sider__green)::before { background-color: #00e676; }
+
+    .nav__link__wrapper:hover .nav__link.sider__orange,
+    .nav__link__wrapper.selected .nav__link.sider__orange {
+        border-color: #ff9100 !important;
+        box-shadow: 0 0 18px rgba(255, 145, 0, 0.45);
+        background: rgba(255, 145, 0, 0.08) !important;
+    }
+    .nav__link__wrapper:hover .nav__link.sider__orange i,
+    .nav__link__wrapper.selected .nav__link.sider__orange i { 
+        color: #ff9100 !important; 
+        text-shadow: 0 0 10px rgba(255, 145, 0, 0.6);
+    }
+    .nav__link__wrapper:has(.sider__orange):hover::before,
+    .nav__link__wrapper.selected:has(.sider__orange)::before { background-color: #ff9100; }
+
+    .nav__link__wrapper:hover .nav__link.sider__pink,
+    .nav__link__wrapper.selected .nav__link.sider__pink {
+        border-color: #ff007f !important;
+        box-shadow: 0 0 18px rgba(255, 0, 127, 0.45);
+        background: rgba(255, 0, 127, 0.08) !important;
+    }
+    .nav__link__wrapper:hover .nav__link.sider__pink i,
+    .nav__link__wrapper.selected .nav__link.sider__pink i { 
+        color: #ff007f !important; 
+        text-shadow: 0 0 10px rgba(255, 0, 127, 0.6);
+    }
+    .nav__link__wrapper:has(.sider__pink):hover::before,
+    .nav__link__wrapper.selected:has(.sider__pink)::before { background-color: #ff007f; }
+
+    .nav__link__wrapper:hover .nav__link.sider__purple,
+    .nav__link__wrapper.selected .nav__link.sider__purple {
+        border-color: #b026ff !important;
+        box-shadow: 0 0 18px rgba(176, 38, 255, 0.45);
+        background: rgba(176, 38, 255, 0.08) !important;
+    }
+    .nav__link__wrapper:hover .nav__link.sider__purple i,
+    .nav__link__wrapper.selected .nav__link.sider__purple i { 
+        color: #b026ff !important; 
+        text-shadow: 0 0 10px rgba(176, 38, 255, 0.6);
+    }
+    .nav__link__wrapper:has(.sider__purple):hover::before,
+    .nav__link__wrapper.selected:has(.sider__purple)::before { background-color: #b026ff; }
+
+    .nav__link__wrapper:hover .nav__link.sider__yellow,
+    .nav__link__wrapper.selected .nav__link.sider__yellow {
+        border-color: #ffd600 !important;
+        box-shadow: 0 0 18px rgba(255, 214, 0, 0.45);
+        background: rgba(255, 214, 0, 0.08) !important;
+    }
+    .nav__link__wrapper:hover .nav__link.sider__yellow i,
+    .nav__link__wrapper.selected .nav__link.sider__yellow i { 
+        color: #ffd600 !important; 
+        text-shadow: 0 0 10px rgba(255, 214, 0, 0.6);
+    }
+    .nav__link__wrapper:has(.sider__yellow):hover::before,
+    .nav__link__wrapper.selected:has(.sider__yellow)::before { background-color: #ffd600; }
+
+    .nav__link__wrapper:hover .nav__link.sider__red {
+        border-color: #ff3d00 !important;
+        box-shadow: 0 0 18px rgba(255, 61, 0, 0.45);
+        background: rgba(255, 61, 0, 0.08) !important;
+    }
+    .nav__link__wrapper:hover .nav__link.sider__red i { 
+        color: #ff3d00 !important; 
+        text-shadow: 0 0 10px rgba(255, 61, 0, 0.6);
+    }
+    .nav__link__wrapper:has(.sider__red):hover::before { background-color: #ff3d00; }
+
+    .navbar {
+        background: rgba(13, 17, 23, 0.85) !important;
+        border-bottom: 2px solid #14b8a6 !important; 
+        box-shadow: 0 0 15px rgba(20, 184, 166, 0.25) !important;
+        backdrop-filter: blur(10px);
+        height: 70px;
+        z-index: 1050;
+    }
+    .navbar-brand {
+        color: #ffffff !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.5px;
+    }
+
+    .card.shadow {
+        background: #161b22 !important;
+        border: 1px solid #30363d !important;
+        border-radius: 14px !important;
+        overflow: hidden;
+    }
+    .card-header {
+        background: rgba(22, 27, 34, 0.7) !important;
+        border-bottom: 1px solid #30363d !important;
+    }
+    
+    .text-dark { color: #ffffff !important; }
+    .text-primary { color: #00d2ff !important; }
+
+    .form-control {
+        background-color: #0d1117 !important;
+        border: 1px solid #30363d !important;
+        color: #ffffff !important;
+        border-radius: 8px;
+    }
+    .btn-light {
+        background-color: #21262d !important;
+        border: 1px solid #30363d !important;
+        color: #c9d1d9 !important;
+    }
+    .btn-light:hover {
+        background-color: #30363d !important;
+        color: #ffffff !important;
+    }
+
+    .modal-content {
+        background-color: #161b22 !important;
+        border: 1px solid #00e676 !important;
+        box-shadow: 0 0 25px rgba(0, 230, 118, 0.2);
+        color: #ffffff;
+    }
+    .modal-header { border-bottom: 1px solid #30363d; }
+    .modal-footer { border-top: 1px solid #30363d; }
+
+    @media (max-height: 620px) {
+        .sider__main_content .nav__link {
+            width: 44px !important;
+            height: 44px !important;
+            border-radius: 10px !important;
+        }
+        .sider__main_content .nav__link i {
+            font-size: 1.1rem !important;
+        }
+        .sider__btn__container {
+            gap: 0.8vh !important;
+        }
+    }
+
+    /* ==========================================================================
+       🎮 GAMING RGB COURSE CARDS STYLING (CSS ONLY)
+       ========================================================================== */
+
+    .gaming-zone-title {
+        color: #00d2ff !important;
+        text-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+        border-left: 4px solid #00d2ff;
+        padding-left: 12px;
+        font-family: 'Nunito', sans-serif;
+        letter-spacing: 0.5px;
+    }
+
+    h4 i.fa-crosshairs, 
+    h4:has(.fa-crosshairs) {
+        color: #ff9100 !important;
+        text-shadow: 0 0 10px rgba(255, 145, 0, 0.4) !important;
+    }
+    h4:has(.fa-crosshairs) {
+        border-left-color: #ff9100 !important;
+    }
+
+    .mb-5 .card, .mb-4 .card {
+        background: rgba(22, 27, 34, 0.75) !important;
+        border: 1px solid #30363d !important;
+        border-radius: 16px !important;
+        backdrop-filter: blur(8px);
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        overflow: hidden;
+    }
+
+    .mb-5 .col:hover .card {
+        border-color: #00d2ff !important;
+        box-shadow: 0 0 25px rgba(0, 210, 255, 0.25) !important;
+        transform: translateY(-5px);
+    }
+
+    .mb-4 .col:hover .card {
+        border-color: #ff9100 !important;
+        box-shadow: 0 0 25px rgba(255, 145, 0, 0.25) !important;
+        transform: translateY(-5px);
+    }
+
+    .card .position-relative img {
+        transition: transform 0.5s ease;
+    }
+    .col:hover .card .position-relative img {
+        transform: scale(1.04);
+        opacity: 1 !important;
+    }
+
+    .card .badge {
+        background: rgba(13, 17, 23, 0.85) !important;
+        border-radius: 6px !important;
+        font-weight: 600;
+    }
+    .mb-5 .col:hover .card .badge {
+        border-color: #00d2ff !important;
+        color: #00d2ff !important;
+    }
+    .mb-4 .col:hover .card .badge {
+        border-color: #ff9100 !important;
+        color: #ff9100 !important;
+    }
+
+    .btn-playlist {
+        background: #161b22 !important;
+        color: #8b949e !important;
+        border: 1px solid #30363d !important;
+        font-weight: 700 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.85rem !important;
+        transition: all 0.3s ease-in-out !important;
+    }
+
+    .mb-5 .col:hover .btn-playlist {
+        background: #00d2ff !important;
+        color: #0d1117 !important;
+        border-color: #00d2ff !important;
+        box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+    }
+
+    .mb-4 .col:hover .btn-playlist {
+        background: #ff9100 !important;
+        color: #0d1117 !important;
+        border-color: #ff9100 !important;
+        box-shadow: 0 0 15px rgba(255, 145, 0, 0.5);
+    }
+
+    /* 💻 Laptop එකේදී මේ බටන් හැංගීමට */
+.mobile-only-element {
+    display: none;
+}
+
+/* 📱 මොබයිල් ෆෝන්ස් සඳහා විතරක් ක්‍රියාත්මක වන CSS */
+@media (max-width: 768px) {
+    .mobile-only-element {
+        display: block;
+    }
+    
+    /* පරණ සයිඩ්බාර් එක මොබයිල් එකේදී සම්පූර්ණයෙන්ම හංගනවා */
+    .sider {
+        display: none !important;
+    }
+    #content-wrapper {
+        margin-left: 0 !important;
+        margin-top: 75px !important;
+        padding: 0 15px 30px 15px !important;
+    }
+
+    /* 🔘 iPhone Floating Button එක */
+    #mobile-floating-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        background: rgba(13, 17, 23, 0.8);
+        border: 2px solid #00e676;
+        box-shadow: 0 0 15px rgba(0, 230, 118, 0.4);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        cursor: pointer;
+        backdrop-filter: blur(5px);
+        transition: transform 0.2s;
+    }
+    #mobile-floating-btn i {
+        color: #00e676;
+        font-size: 1.4rem;
+    }
+    #mobile-floating-btn:active {
+        transform: scale(0.9);
+    }
+
+    /* ⭕ මැදින් මතුවන රවුම් මෙනු එක */
+    #mobile-circular-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(11, 14, 20, 0.9); /* Background එක ඩාර්ක් බ්ලර් වෙනවා */
+        backdrop-filter: blur(8px);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.3s ease;
+    }
+    
+    #mobile-circular-menu.hidden {
+        display: none !important;
+        opacity: 0;
+    }
+
+    .circular-menu-inner {
+        position: relative;
+        width: 260px;
+        height: 260px;
+    }
+
+    /* මෙනු එක මැද තියෙන Close (X) බටන් එක */
+    .menu-center-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        background: #161b22;
+        border: 2px solid #ff453a;
+        box-shadow: 0 0 15px rgba(255, 69, 58, 0.4);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    .menu-center-btn i { color: #ff453a; font-size: 1.3rem; }
+
+    /* වටේට රවුමට යන අයිකන් 6 පොසිෂන් කිරීම */
+    .menu-item {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #8b949e;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    .menu-item i { font-size: 1.2rem; }
+
+    /* Selected අයිකන් එක Glow වෙන්න */
+    .menu-item.selected {
+        border-color: #00e676 !important;
+        box-shadow: 0 0 15px rgba(0, 230, 118, 0.5);
+        color: #00e676 !important;
+    }
+
+    /* 📐 ත්‍රිකෝණමිතිය ගණිත ක්‍රම මගින් අයිකන් 6 රවුමක් වෙන සේ කෝණ බෙදීම */
+    .item-1 { top: 0%; left: 50%; transform: translateX(-50%); } /* උඩම */
+    .item-2 { top: 25%; left: 85%; transform: translate(-50%, -50%); }
+    .item-3 { top: 75%; left: 85%; transform: translate(-50%, -50%); }
+    .item-4 { bottom: 0%; left: 50%; transform: translateX(-50%); } /* යටම */
+    .item-5 { top: 75%; left: 15%; transform: translate(-50%, -50%); }
+    .item-6 { top: 25%; left: 15%; transform: translate(-50%, -50%); }
+    
+    /* Heading එක සහ බටන් එක සකස් කිරීම */
+    .d-sm-flex { display: flex !important; flex-direction: column !important; gap: 12px !important; }
+    #clear-all-classes-btn { width: 100% !important; justify-content: center !important; }
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-blur shadow">
+        <div class="justify-content-between container-fluid">
+           <div class="d-flex align-items-center">
+            <img src="N.png" width="35px">
+            <a class="navbar-brand ms-2 mb-0 h1 fs-5">NexusPlatform</a>
+        </div>
+                
+        
+        </div>
+    </nav>
+
+    <div class="sidebarbg" id="sidebarbg">
+        <nav class="sider bg-blur" id="sider__menu">
+            <div class="sider__main_content">
+                <div class="sider__btn__container">
+                    
+                    <div class="nav__link__wrapper">
+                        <a id="home_nav_btn" class="nav__link sider__blue" href="dashboard.html">
+                            <div><i class="fa-solid fa-gamepad"></i></div>
+                            <span class="nav__name">Lobby Dashboard</span>
+                        </a>
+                    </div>
+
+                    <div class="nav__link__wrapper ">
+                        <a id="my_class_nav_btn" class="nav__link sider__green " href="class.html">
+                            <div><i class="fa-solid fa-khanda"></i></div>
+                            <span class="nav__name">Campaign Quests</span>
+                        </a>
+                    </div>
+
+                    <div class="nav__link__wrapper">
+                        <a id="notices_nav_btn" class="nav__link sider__orange" href="notices.html">
+                            <div><i class="fa-solid fa-bullhorn"></i></div>
+                            <span class="nav__name">Guild Board</span>
+                        </a>
+                    </div>
+
+                    <div class="nav__link__wrapper">
+                        <a id="marksanalyze_nav_btn" class="nav__link sider__pink" href="marks-analyze.html">
+                            <div><i class="fa-solid fa-trophy"></i></div>
+                            <span class="nav__name">Leaderboard</span>
+                        </a>
+                    </div>
+
+                    <div class="nav__link__wrapper selected">
+                        <a id="store_nav_btn" class="nav__link sider__purple selected " href="about.html">
+                            <div><i class="fa-solid fa-gem"></i></div>
+                            <span class="nav__name">About Crew</span>
+                        </a>
+                    </div>
+
+                    <div class="nav__link__wrapper">
+                        <a id="profile_nav_btn" class="nav__link sider__yellow" href="profile.html">
+                            <div><i class="fa-solid fa-user-shield"></i></div>
+                            <span class="nav__name">Avatar Stats</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav__bootom">
+                    <div class="nav__link__wrapper">
+                        <a class="nav__link sider__red" id="nav_logout_btn" data-bs-target="#log-out-model" data-bs-toggle="modal" style="cursor: pointer;">
+                            <div><i class="fa-solid fa-power-off"></i></div>
+                            <span class="nav__name">Quit Game</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div id="content-wrapper" style="margin-top: 100px;">
+        <div class="mb-5">
+            
+        </div>
+    </div>
+
+    <div class="mb-5">
+        <h4 class="fw-bold text-uppercase mb-4 gaming-zone-title" style="font-size: 1.1rem;"><i class="fa-solid fa-book me-2"></i>Main Quests (Pure Maths)</h4>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+            
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="images/pic-6.jpg" alt="Tutor" class="rounded-circle me-3 border border-secondary" width="40" height="40">
+                            <div>
+                                <h6 class="mb-0 fw-bold text-white small">Manoj Solangarachchi</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">📅 21-01-2026</small>
+                            </div>
+                        </div>
+                        <div class="position-relative mb-3 rounded-3 overflow-hidden bg-dark">
+                            <img src="images/thumb-4.png" alt="Thumbnail" class="img-fluid w-100 object-fit-cover" style="height: 170px; opacity: 0.85;">
+                            <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">7 videos</span>
+                        </div>
+                        <h5 class="card-title fw-bold text-white mb-3 fs-6" style="min-height: 40px;"> ශ්‍රේණි <span id="badge-sheni" class="badge bg-danger ms-2" style="font-size: 0.7rem;">PAID</span></h5>
+                        <div id="btn-container-sheni">
+                            <button id="btn-sheni" onclick="requestUnlock('sheni)" class="btn btn-playlist btn-sm w-100 rounded-3 py-2">Enroll Quest</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="images/pic-6.jpg" alt="Tutor" class="rounded-circle me-3 border border-secondary" width="40" height="40">
+                            <div>
+                                <h6 class="mb-0 fw-bold text-white small">Manoj Solangarachchi</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">📅 21-01-2026</small>
+                            </div>
+                        </div>
+                        <div class="position-relative mb-3 rounded-3 overflow-hidden bg-dark">
+                            <img src="images/thumb-3.png" alt="Thumbnail" class="img-fluid w-100 object-fit-cover" style="height: 170px; opacity: 0.85;">
+                            <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">4 videos</span>
+                        </div>
+                        <h5 class="card-title fw-bold text-white mb-3 fs-6" style="min-height: 40px;">සීමාව <span id="badge-සීමාව" class="badge bg-danger ms-2" style="font-size: 0.7rem;">PAID</span></h5>
+                        <div id="btn-container-සීමාව">
+                            <button id="btn-සීමාව" onclick="requestUnlock('සීමාව')" class="btn btn-playlist btn-sm w-100 rounded-3 py-2">Enroll Quest</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="images/pic-6.jpg" alt="Tutor" class="rounded-circle me-3 border border-secondary" width="40" height="40">
+                            <div>
+                                <h6 class="mb-0 fw-bold text-white small">Manoj Solangarachchi</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">📅 21-01-2026</small>
+                            </div>
+                        </div>
+                        <div class="position-relative mb-3 rounded-3 overflow-hidden bg-dark">
+                            <img src="images/thumb-4.png" alt="Thumbnail" class="img-fluid w-100 object-fit-cover" style="height: 170px; opacity: 0.85;">
+                            <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">7 videos</span>
+                        </div>
+                        <h5 class="card-title fw-bold text-white mb-3 fs-6" style="min-height: 40px;">අවකලනය <span id="badge-අවකලනය" class="badge bg-danger ms-2" style="font-size: 0.7rem;">PAID</span></h5>
+                        <div id="btn-container-අවකලනය">
+                            <button id="btn-අවකලනය" onclick="requestUnlock('අවකලනය')" class="btn btn-playlist btn-sm w-100 rounded-3 py-2">Enroll Quest</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+           
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="images/pic-6.jpg" alt="Tutor" class="rounded-circle me-3 border border-secondary" width="40" height="40">
+                            <div>
+                                <h6 class="mb-0 fw-bold text-white small">Manoj Solangarachchi</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">📅 21-01-2026</small>
+                            </div>
+                        </div>
+                        <div class="position-relative mb-3 rounded-3 overflow-hidden bg-dark">
+                            <img src="images/thumb-1.png" alt="Thumbnail" class="img-fluid w-100 object-fit-cover" style="height: 170px; opacity: 0.85;">
+                            <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">9 videos</span>
+                        </div>
+                        <h5 class="card-title fw-bold text-white mb-3 fs-6" style="min-height: 40px;">ත්‍රිකෝණමිතිය <span class="badge bg-success ms-2" style="font-size: 0.7rem;">FREE</span></h5>
+                        <button onclick="enrollClass('ත්‍රිකෝණමිතිය', 'images/thumb-1.png', '9 videos', 'playlist.html')" class="btn btn-playlist btn-sm w-100 rounded-3 py-2">Enroll Quest</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="images/pic-6.jpg" alt="Tutor" class="rounded-circle me-3 border border-secondary" width="40" height="40">
+                            <div>
+                                <h6 class="mb-0 fw-bold text-white small">Manoj Solangarachchi</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">📅 21-01-2026</small>
+                            </div>
+                        </div>
+                        <div class="position-relative mb-3 rounded-3 overflow-hidden bg-dark">
+                            <img src="images/thumb-6.png" alt="Thumbnail" class="img-fluid w-100 object-fit-cover" style="height: 170px; opacity: 0.85;">
+                            <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">2 videos</span>
+                        </div>
+                        <h5 class="card-title fw-bold text-white mb-3 fs-6" style="min-height: 40px;">මාපාංක ප්‍රස්ථාර <span class="badge bg-success ms-2" style="font-size: 0.7rem;">FREE</span></h5>
+                        <button onclick="enrollClass('මාපාංක ප්‍රස්ථාර', 'images/thumb-1.png', '9 videos', 'playlist -5.html')" class="btn btn-playlist btn-sm w-100 rounded-3 py-2">Enroll Quest</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="images/pic-6.jpg" alt="Tutor" class="rounded-circle me-3 border border-secondary" width="40" height="40">
+                            <div>
+                                <h6 class="mb-0 fw-bold text-white small">Manoj Solangarachchi</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">📅 21-01-2026</small>
+                            </div>
+                        </div>
+                        <div class="position-relative mb-3 rounded-3 overflow-hidden bg-dark">
+                            <img src="images/thumb-7.png" alt="Thumbnail" class="img-fluid w-100 object-fit-cover" style="height: 170px; opacity: 0.85;">
+                            <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">4 videos</span>
+                        </div>
+                        <h5 class="card-title fw-bold text-white mb-3 fs-6" style="min-height: 40px;">වර්ගජ සමීකරණ <span class="badge bg-success ms-2" style="font-size: 0.7rem;">FREE</span></h5>
+                        <button onclick="enrollClass('වර්ගජ සමීකරණ', 'images/thumb-1.png', '9 videos', 'playlist -10.html')" class="btn btn-playlist btn-sm w-100 rounded-3 py-2">Enroll Quest</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="images/pic-6.jpg" alt="Tutor" class="rounded-circle me-3 border border-secondary" width="40" height="40">
+                            <div>
+                                <h6 class="mb-0 fw-bold text-white small">Manoj Solangarachchi</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">📅 21-01-2026</small>
+                            </div>
+                        </div>
+                        <div class="position-relative mb-3 rounded-3 overflow-hidden bg-dark">
+                            <img src="images/thumb-2.png" alt="Thumbnail" class="img-fluid w-100 object-fit-cover" style="height: 170px; opacity: 0.85;">
+                            <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">6 videos</span>
+                        </div>
+                        <h5 class="card-title fw-bold text-white mb-3 fs-6" style="min-height: 40px;">ශේෂ ප්‍රමේය හා සාධක ප්‍රමේය <span class="badge bg-success ms-2" style="font-size: 0.7rem;">FREE</span></h5>
+                        <button onclick="enrollClass('ශේෂ ප්‍රමේය හා සාධක ප්‍රමේය', 'images/thumb-1.png', '9 videos', 'playlist -1.html')" class="btn btn-playlist btn-sm w-100 rounded-3 py-2">Enroll Quest</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="images/pic-6.jpg" alt="Tutor" class="rounded-circle me-3 border border-secondary" width="40" height="40">
+                            <div>
+                                <h6 class="mb-0 fw-bold text-white small">Manoj Solangarachchi</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">📅 21-01-2026</small>
+                            </div>
+                        </div>
+                        <div class="position-relative mb-3 rounded-3 overflow-hidden bg-dark">
+                            <img src="images/thumb-7.png" alt="Thumbnail" class="img-fluid w-100 object-fit-cover" style="height: 170px; opacity: 0.85;">
+                            <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">2 videos</span>
+                        </div>
+                        <h5 class="card-title fw-bold text-white mb-3 fs-6" style="min-height: 40px;">භින්න භාග <span class="badge bg-success ms-2" style="font-size: 0.7rem;">FREE</span></h5>
+                        <button onclick="enrollClass('භින්න භාග', 'images/thumb-1.png', '9 videos', 'playlist -4.html')" class="btn btn-playlist btn-sm w-100 rounded-3 py-2">Enroll Quest</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="images/pic-6.jpg" alt="Tutor" class="rounded-circle me-3 border border-secondary" width="40" height="40">
+                            <div>
+                                <h6 class="mb-0 fw-bold text-white small">Manoj Solangarachchi</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">📅 21-01-2026</small>
+                            </div>
+                        </div>
+                        <div class="position-relative mb-3 rounded-3 overflow-hidden bg-dark">
+                            <img src="images/thumb-7.png" alt="Thumbnail" class="img-fluid w-100 object-fit-cover" style="height: 170px; opacity: 0.85;">
+                            <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">7 videos</span>
+                        </div>
+                        <h5 class="card-title fw-bold text-white mb-3 fs-6" style="min-height: 40px;">සරල රේඛාව <span class="badge bg-success ms-2" style="font-size: 0.7rem;">FREE</span></h5>
+                        <button onclick="enrollClass('සරල රේඛාව', 'images/thumb-1.png', '9 videos', 'playlist -6.html')" class="btn btn-playlist btn-sm w-100 rounded-3 py-2">Enroll Quest</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <h4 class="fw-bold text-uppercase mb-4 gaming-zone-title" style="font-size: 1.1rem;"><i class="fa-solid fa-crosshairs me-2"></i>Side Quests (Applied Maths)</h4>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+            
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="images/pic-6.jpg" alt="Tutor" class="rounded-circle me-3 border border-secondary" width="40" height="40">
+                            <div>
+                                <h6 class="mb-0 fw-bold text-white small">Manoj Solangarachchi</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">📅 21-01-2026</small>
+                            </div>
+                        </div>
+                        <div class="position-relative mb-3 rounded-3 overflow-hidden bg-dark">
+                            <img src="images/thumb-5.png" alt="Thumbnail" class="img-fluid w-100 object-fit-cover" style="height: 170px; opacity: 0.85;">
+                            <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">4 videos</span>
+                        </div>
+                        <h5 class="card-title fw-bold text-white mb-3 fs-6" style="min-height: 40px;">ඒකතල බල පද්ධති <span class="badge bg-success ms-2" style="font-size: 0.7rem;">FREE</span></h5>
+                        <button onclick="enrollClass('ඒකතල බල පද්ධති', 'images/thumb-1.png', '9 videos', 'playlist -8.html')" class="btn btn-playlist btn-sm w-100 rounded-3 py-2">Enroll Quest</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="images/pic-6.jpg" alt="Tutor" class="rounded-circle me-3 border border-secondary" width="40" height="40">
+                            <div>
+                                <h6 class="mb-0 fw-bold text-white small">Manoj Solangarachchi</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">📅 21-01-2026</small>
+                            </div>
+                        </div>
+                        <div class="position-relative mb-3 rounded-3 overflow-hidden bg-dark">
+                            <img src="images/thumb-7.png" alt="Thumbnail" class="img-fluid w-100 object-fit-cover" style="height: 170px; opacity: 0.85;">
+                            <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">5 videos</span>
+                        </div>
+                        <h5 class="card-title fw-bold text-white mb-3 fs-6" style="min-height: 40px;">සාපේක්ෂ ප්‍රවේගය <span class="badge bg-success ms-2" style="font-size: 0.7rem;">FREE</span></h5>
+                        <button onclick="enrollClass('සාපේක්ෂ ප්‍රවේගය', 'images/thumb-1.png', '9 videos', 'playlist -9.html')" class="btn btn-playlist btn-sm w-100 rounded-3 py-2">Enroll Quest</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="images/pic-6.jpg" alt="Tutor" class="rounded-circle me-3 border border-secondary" width="40" height="40">
+                            <div>
+                                <h6 class="mb-0 fw-bold text-white small">Manoj Solangarachchi</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">📅 21-01-2026</small>
+                            </div>
+                        </div>
+                        <div class="position-relative mb-3 rounded-3 overflow-hidden bg-dark">
+                            <img src="images/thumb-7.png" alt="Thumbnail" class="img-fluid w-100 object-fit-cover" style="height: 170px; opacity: 0.85;">
+                            <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">3 videos</span>
+                        </div>
+                        <h5 class="card-title fw-bold text-white mb-3 fs-6" style="min-height: 40px;">ප්‍රවේග කාල වක්‍ර <span class="badge bg-success ms-2" style="font-size: 0.7rem;">FREE</span></h5>
+                        <button onclick="enrollClass('ප්‍රවේග කාල වක්‍ර', 'images/thumb-1.png', '9 videos', 'playlist-11.html')" class="btn btn-playlist btn-sm w-100 rounded-3 py-2">Enroll Quest</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="images/pic-6.jpg" alt="Tutor" class="rounded-circle me-3 border border-secondary" width="40" height="40">
+                            <div>
+                                <h6 class="mb-0 fw-bold text-white small">Manoj Solangarachchi</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">📅 21-01-2026</small>
+                            </div>
+                        </div>
+                        <div class="position-relative mb-3 rounded-3 overflow-hidden bg-dark">
+                            <img src="images/thumb-7.png" alt="Thumbnail" class="img-fluid w-100 object-fit-cover" style="height: 170px; opacity: 0.85;">
+                            <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">7 videos</span>
+                        </div>
+                        <h5 class="card-title fw-bold text-white mb-3 fs-6" style="min-height: 40px;">දෛශික <span class="badge bg-success ms-2" style="font-size: 0.7rem;">FREE</span></h5>
+                        <button onclick="enrollClass('දෛශික', 'images/thumb-1.png', '9 videos', 'playlist -7.html')" class="btn btn-playlist btn-sm w-100 rounded-3 py-2">Enroll Quest</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.cmwithmn.lk/web-data/Static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+
+    <script>
+        // Firebase Config
+        const firebaseConfig = {
+            apiKey: "AIzaSyC3Cz8fK3xKnqfxVIKVkiipWjXsplypsJg",
+            authDomain: "nexus-8b5ab.firebaseapp.com",
+            projectId: "nexus-8b5ab",
+            storageBucket: "nexus-8b5ab.firebasestorage.app",
+            messagingSenderId: "369886966911",
+            appId: "1:369886966911:web:c3ccdcb3f75370c984bb4a",
+            measurementId: "G-BCYFFBXC1V"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        let student_id = localStorage.getItem('student_id');
+        if (!student_id) {
+            student_id = "STU_" + Math.floor(1000 + Math.random() * 9000);
+            localStorage.setItem('student_id', student_id);
+        }
+
+        // Live Database Status Realtime Checker
+        function listenToCourseStatus(className, playlistUrl, thumbImg, videoCount) {
+            const container = document.getElementById(`btn-container-${className}`);
+            const badge = document.getElementById(`badge-${className}`);
+            if (!container) return;
+
+            database.ref('unlock_requests')
+                .orderByChild('studentName')
+                .equalTo(student_id)
+                .on('value', (snapshot) => {
+                    let currentStatus = "none"; 
+
+                    snapshot.forEach((childSnapshot) => {
+                        const data = childSnapshot.val();
+                        if (data.requestedClass === className) {
+                            currentStatus = data.status;
+                        }
+                    });
+
+                    if (currentStatus === "Pending") {
+                        if(badge) { badge.className = "badge bg-warning text-dark ms-2"; badge.innerText = "PENDING"; }
+                        container.innerHTML = `<button class="btn btn-playlist btn-sm w-100 rounded-3 py-2" disabled>Pending Approval...</button>`;
+                    } else if (currentStatus === "Approved" || currentStatus === "approved") {
+                        if(badge) { badge.className = "badge bg-info text-dark ms-2"; badge.innerText = "ACTIVE"; }
+                        container.innerHTML = `<button onclick="enrollClass('${className}', '${thumbImg}', '${videoCount}', '${playlistUrl}')" class="btn btn-playlist btn-sm w-100 rounded-3 py-2">Enroll Quest</button>`;
+                    } else {
+                        if(badge) { badge.className = "badge bg-danger ms-2"; badge.innerText = "PAID"; }
+                        container.innerHTML = `<button onclick="requestUnlock('${className}')" class="btn btn-playlist btn-sm w-100 rounded-3 py-2">Request Unlock</button>`;
+                    }
+                });
+        }
+
+        // සීමාව (Paid Class) සජීවීව පරීක්ෂා කිරීම ආරම්භය
+        listenToCourseStatus('සීමාව', 'playlist -2.html', 'images/thumb-3.png', '4 videos');
+         listenToCourseStatus('අවකලනය', 'playlist -3.html', 'images/thumb-3.png', '6 videos');
+         listenToCourseStatus('sheni', 'playlist -12.html', 'images/thumb-3.png', '1 videos');
+
+         function enrollClass(className, thumbImg, videoCount, playlistUrl) {
+    // 👑 ඉංග්‍රීසි නම සිංහල නම බවට හරවන කොටස (Alert එකේ පෙන්වන්න විතරක්)
+    let displayTitle = className;
+    if (className === 'shreni' || className === 'sheni') {
+        displayTitle = 'ශ්‍රේණි';
+    } else if (className === 'සීමාව') {
+        displayTitle = 'සීමාව';
+    } else if (className === 'අවකලනය') {
+        displayTitle = 'අවකලනය';
+    }
+
+    let enrolledClasses = JSON.parse(localStorage.getItem('enrolledClasses')) || [];
+    const isAlreadyEnrolled = enrolledClasses.some(item => item.name === className);
+
+    if (!isAlreadyEnrolled) {
+        enrolledClasses.push({
+            name: className, 
+            image: thumbImg, 
+            videos: videoCount, 
+            url: playlistUrl, 
+            tutor: "Manoj Solangarachchi", 
+            date: "21-01-2026"
+        });
+        localStorage.setItem('enrolledClasses', JSON.stringify(enrolledClasses));
+        
+        Swal.fire({
+            title: 'Success!',
+            text: `'${displayTitle}' සාර්ථකව My Classes වලට එකතු කරගත්තා!`,
+            icon: 'success',
+            background: '#161b22',
+            color: '#ffffff',
+            confirmButtonColor: '#00e676'
+        });
+    } else {
+        // 🎯 ඔන්න ඔයාට පරණ විදිහට 'sheni' කියලා පෙනුන Alert එක ලස්සනට සිංහලෙන් වදින තැන:
+        Swal.fire({
+            title: 'Info',
+            text: `'${displayTitle}' දැනටමත් My Classes වලට එකතු කරලා තියෙන්නේ!`,
+            icon: 'info',
+            background: '#161b22',
+            color: '#ffffff',
+            confirmButtonColor: '#00d2ff'
+        });
+    }
+}
+
+        function requestUnlock(className) {
+    // ඉංග්‍රීසි නම සිංහල නම බවට හරවන කොටස 
+    let displayTitle = className;
+    if (className === 'sheni') displayTitle = 'ශ්‍රේණි';
+    if (className === 'සීමාව') displayTitle = 'සීමාව';
+    if (className === 'අවකලනය') displayTitle = 'අවකලනය';
+
+    Swal.fire({
+        title: `Course Fee: Rs. 200`,
+        html: `
+            <div style="text-align: left; font-size: 0.95rem; line-height: 1.5;">
+                <p>මෙම <b>'${displayTitle}'</b> පාඩම Unlock කරගැනීම සඳහා <b>Ez Cash</b> මඟින් <b>Rs. 200</b> ක මුදලක් ගෙවා, එහි රිසිට්පත (Receipt) පහත Telegram link එක හරහා Admin වෙත යොමු කරන්න.</p>
+                <div style="background: #22272e; padding: 10px; border-radius: 8px; border: 1px solid #444; margin-bottom: 15px;">
+                    <span style="color: #00e676; font-weight: bold;">💸 Ez Cash Number:</span> 
+                    <span style="font-family: monospace; font-size: 1.1rem; letter-spacing: 1px;">07XXXXXXXX</span>
+                </div>
+                <p style="margin-bottom: 5px;">රිසිට්පත එවීමට සහ වැඩිදුර විස්තර සඳහා:</p>
+                <a href="https://t.me/Nexusbook_live_bot" target="_blank" class="btn" style="background-color: #0088cc; color: white; width: 100%; padding: 8px; border-radius: 6px; font-weight: bold; text-decoration: none; display: inline-block; text-align: center; box-sizing: border-box;">
+                    <i class="fa-brands fa-telegram" style="margin-right: 8px;"></i> Contact Admin via Telegram
+                </a>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.85rem; color: #aaa;">ගෙවීම් සිදු කර ඉල්ලීම (Request) යොමු කිරීමට පහත බොත්තම ඔබන්න.</p>
+        `,
+        icon: 'info',
+        showCancelButton: true,
+        background: '#161b22',
+        color: '#ffffff',
+        confirmButtonColor: '#00d2ff',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, I Paid & Request',
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const requestRef = database.ref('unlock_requests').push();
+            requestRef.set({
+                studentName: student_id,
+                requestedClass: className, // Firebase එකට යන්නේ 'shreni' කියලා (ඒක Admin panel එකට ලේසියි)
+                status: "Pending",
+                timestamp: new Date().toLocaleString()
+            }).then(() => {
+                Swal.fire({
+                    title: 'Success!',
+                    text: `'${displayTitle}' පාඩම සඳහා ඔබේ ඉල්ලීම යොමු කෙරුණා! රිසිට්පත පරීක්ෂා කර Admin අනුමත කල පසු ඔබට වීඩියෝ නැරඹිය හැක.`,
+                    icon: 'success',
+                    background: '#161b22',
+                    color: '#ffffff',
+                    confirmButtonColor: '#00e676'
+                });
+            });
+        }
+    });
+}
+         // 🛡️ Right-Click බ්ලොක් කිරීම
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+// 🛡️ Keyboard Shortcuts (F12, Ctrl+U, Ctrl+Shift+I, Ctrl+Shift+J) බ්ලොක් කිරීම
+document.addEventListener('keydown', function (e) {
+    // F12 බ්ලොක් කිරීම
+    if (e.key === "F12") {
+        e.preventDefault();
+        return false;
+    }
+    // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+Shift+C බ්ලොක් කිරීම
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 'c' || e.key === 'C'))) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+
+// 🛡️ Right-Click බ්ලොක් කිරීම
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // 🛡️ Keyboard Shortcuts (F12, Ctrl+U, Ctrl+Shift+I, Ctrl+Shift+J) බ්ලොක් කිරීම
+        document.addEventListener('keydown', function (e) {
+            // F12 බ්ලොක් කිරීම
+            if (e.key === "F12") {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+Shift+C බ්ලොක් කිරීම
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 'c' || e.key === 'C'))) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // 📱 [මෙන්න මෙතනට තමයි JS එක එන්න ඕනේ] iPhone Floating Menu Logic (DOMContentLoaded ඇතුළට දමා ඇත)
+        const floatingBtn = document.getElementById('mobile-floating-btn');
+        const circularMenu = document.getElementById('mobile-circular-menu');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+
+        if(floatingBtn && circularMenu && closeMenuBtn) {
+            // බටන් එක එබුවාම මෙනු එක පෙන්වන්න
+            floatingBtn.addEventListener('click', function(e) {
+                e.stopPropagation(); // වෙනත් click events වලට බාධා වීම වැළැක්වීමට
+                circularMenu.classList.remove('hidden');
+            });
+
+            // Close (X) බටන් එක එබුවාම මෙනු එක වහන්න
+            closeMenuBtn.addEventListener('click', function() {
+                circularMenu.classList.add('hidden');
+            });
+            
+            // මෙනු එකෙන් පිටත කළු පාට තැනක් එබුවත් වහන්න
+            circularMenu.addEventListener('click', function(e) {
+                if (e.target === circularMenu) {
+                    circularMenu.classList.add('hidden');
+                }
+            });
+        }
+    }); // 👈 DOMContentLoaded එක වැහෙන රූල
+</script> 
+
+<div id="mobile-floating-btn" class="mobile-only-element">
+    <i class="fa-solid fa-ellipsis-vertical"></i>
+</div>
+
+<div id="mobile-circular-menu" class="mobile-only-element hidden">
+    <div class="circular-menu-inner">
+        <div id="close-menu-btn" class="menu-center-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        
+        <a href="dashboard.html" class="menu-item item-1" title="Home"><i class="fa-solid fa-gamepad"></i></a>
+        <a href="class.html" class="menu-item item-2 selected" title="My Class"><i class="fa-solid fa-khanda"></i></a>
+        <a href="notices.html" class="menu-item item-3" title="Notices"><i class="fa-solid fa-bullhorn"></i></a>
+        <a href="marks-analyze.html" class="menu-item item-4" title="Marks"><i class="fa-solid fa-trophy"></i></a>
+        <a href="about.html" class="menu-item item-5" title="Store"><i class="fa-solid fa-gem"></i></a>
+        <a href="profile.html" class="menu-item item-6" title="Profile"><i class="fa-solid fa-user-shield"></i></a>
+    </div>
+</div>
+</body>
+  
+</html>

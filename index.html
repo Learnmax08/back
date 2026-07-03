@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusPlatform | Authentication</title>
+    
+    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/fonts/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <style>
+        body {
+            background-color: #080a0f !important;
+            color: #c9d1d9 !important;
+            font-family: 'Nunito', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        /* Moving Particles Canvas CSS */
+        #particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Modern Mesh Glow Background Effects */
+        .bg-glow-1 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 210, 255, 0.12) 0%, rgba(0,0,0,0) 70%);
+            top: -10%;
+            left: -10%;
+            z-index: 1;
+            animation: floatGlow 10s infinite alternate ease-in-out;
+        }
+        .bg-glow-2 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 230, 118, 0.08) 0%, rgba(0,0,0,0) 70%);
+            bottom: -10%;
+            right: -10%;
+            z-index: 1;
+            animation: floatGlow 12s infinite alternate-reverse ease-in-out;
+        }
+
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 30px) scale(1.1); }
+        }
+
+        /* Glassmorphism Auth Card */
+        .auth-card {
+            background: rgba(13, 17, 23, 0.7) !important;
+            border: 1px solid rgba(255, 255, 255, 0.07) !important;
+            border-radius: 24px !important;
+            padding: 40px 35px;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 210, 255, 0.05) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 4px solid #00d2ff !important;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .auth-card:hover {
+            border-color: rgba(0, 210, 255, 0.3) !important;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 50px rgba(0, 210, 255, 0.15) !important;
+            transform: translateY(-5px);
+        }
+
+        .main-logo {
+            font-size: 3.5rem;
+            color: #00d2ff;
+            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.5));
+            animation: pulse 2.5s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.4)); }
+            to { transform: scale(1.04); filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.7)); }
+        }
+
+        .brand-title {
+            color: #ffffff;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+            font-size: 1.8rem;
+        }
+
+        /* Tabs Styling */
+        .nav-tabs {
+            border-bottom: 2px solid #21262d !important;
+            justify-content: center;
+            gap: 15px;
+        }
+        .nav-link {
+            color: #8b949e !important;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            border: none !important;
+            padding: 10px 25px;
+            transition: all 0.3s ease;
+            background: transparent !important;
+            position: relative;
+        }
+        .nav-link.active {
+            color: #00e676 !important;
+            text-shadow: 0 0 10px rgba(0, 230, 118, 0.4);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #00e676;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 8px #00e676;
+        }
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Premium Input Fields */
+        .input-group {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #30363d;
+            background-color: #0d1117;
+        }
+        .input-group:focus-within {
+            border-color: #00d2ff !important;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+        }
+
+        .form-control {
+            background-color: transparent !important;
+            border: none !important;
+            color: #ffffff !important;
+            padding: 14px 15px;
+            font-size: 0.95rem;
+        }
+        .form-control:focus {
+            box-shadow: none !important;
+        }
+
+        .input-group-text {
+            background-color: rgba(22, 27, 34, 0.6) !important;
+            border: none !important;
+            color: #8b949e !important;
+            width: 50px;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        .input-group:focus-within .input-group-text {
+            color: #00d2ff !important;
+        }
+
+        /* Glowing Button */
+        .btn-gaming {
+            background: linear-gradient(45deg, #00d2ff, #00e676) !important;
+            color: #0d1117 !important;
+            font-weight: 800;
+            border: none;
+            border-radius: 14px;
+            padding: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 230, 118, 0.2);
+        }
+
+        .btn-gaming:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(0, 230, 118, 0.5), 0 0 15px rgba(0, 210, 255, 0.3);
+            color: #0d1117 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <div class="auth-card text-center">
+        <div class="mb-2">
+            <i class="fa-solid fa-gamepad main-logo"></i>
+        </div>
+        
+        <h3 class="brand-title mb-4">NexusPlatform</h3>
+
+        <ul class="nav nav-tabs mb-4" id="authTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-panel" type="button" role="tab">Login</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register-panel" type="button" role="tab">Sign Up</button>
+            </li>
+        </ul>
+
+        <div class="tab-content text-start" id="authTabsContent">
+            
+            <div class="tab-pane fade show active" id="login-panel" role="tabpanel">
+                <form id="login-form">
+                    <div class="mb-3 input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                        <input type="email" id="login-email" class="form-control" placeholder="Enter Email" required>
+                    </div>
+                    
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" id="login-password" class="form-control" placeholder="Enter Password" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-gaming w-100">
+                        <i class="fa-solid fa-right-to-bracket me-2"></i> Launch Platform
+                    </button>
+                </form>
+            </div>
+
+            <div class="tab-pane fade" id="register-panel" role="tabpanel">
+                <form id="register-form">
+                    <div class="mb-3 input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" id="reg-name" class="form-control" placeholder="Full Name" required>
+                    </div>
+
+                    <div class="mb-3 input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                        <input type="email" id="reg-email" class="form-control" placeholder="Email Address" required>
+                    </div>
+                    
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" id="reg-password" class="form-control" placeholder="Create Password (Min 6 chars)" minlength="6" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-gaming w-100">
+                        <i class="fa-solid fa-user-plus me-2"></i> Create Account
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.cmwithmn.lk/web-data/Static/assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <script>
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const particlesArray = [];
+        const numberOfParticles = 65;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.3 - 0.15;
+                this.speedY = Math.random() * 0.3 - 0.15;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width) this.x = 0;
+                else if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                else if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(0, 210, 255, 0.5)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+        init();
+
+        function connectParticles() {
+            let opacityValue = 1;
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a; b < particlesArray.length; b++) {
+                    let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
+                    + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                    
+                    if (distance < (canvas.width/7) * (canvas.height/7)) {
+                        opacityValue = 1 - (distance/20000);
+                        ctx.strokeStyle = 'rgba(0, 210, 255,' + opacityValue * 0.15 + ')';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            connectParticles();
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCmciwmEbSDgA5PhCY12a_vKqXl4GDBeZ8",
+            authDomain: "school-project-5fe93.firebaseapp.com",
+            projectId: "school-project-5fe93",
+            storageBucket: "school-project-5fe93.firebasestorage.app",
+            messagingSenderId: "548925209782",
+            appId: "1:548925209782:web:cea0aac7d41a510b2fba17",
+            measurementId: "G-5MG8T54708"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // LOGIN HANDLE
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            Swal.fire({
+                title: 'Verifying...',
+                text: 'Connecting to Nexus Core...',
+                allowOutsideClick: false,
+                didOpen: () => { Swal.showLoading(); },
+                background: '#161b22', color: '#ffffff'
+            });
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then(async (userCredential) => {
+                    const user = userCredential.user;
+                    const userDoc = await getDoc(doc(db, "users", user.uid));
+                    
+                    if (userDoc.exists()) {
+                        const userData = userDoc.data();
+                        if (userData.status === "approved") {
+                            
+                            // ===== මෙන්න මේ හරියෙන් තමයි නිවැරදි UID එක LocalStorage එකට දාන්නේ =====
+                            localStorage.setItem("student_id", user.uid);
+                            localStorage.setItem("student_name", userData.name || "User");
+                            localStorage.setItem("student_avatar", "https://cdn.cmwithmn.lk/web-data/Static/assets/img/avatars/avatar1.png"); // කැමති default avatar එකක් දෙන්න
+                            
+                            Swal.fire({
+                                title: 'Access Granted!',
+                                text: 'Welcome to the platform!',
+                                icon: 'success',
+                                background: '#161b22', color: '#ffffff', confirmButtonColor: '#00e676'
+                            }).then(() => { window.location.href = 'dashboard.html'; });
+                        } else {
+                            await signOut(auth);
+                            Swal.fire({
+                                title: 'Access Denied!',
+                                text: 'ඔබගේ ගිණුම තවමත් Admin විසින් Approve කර නොමැත. කරුණාකර පසුව උත්සාහ කරන්න.',
+                                icon: 'warning',
+                                background: '#161b22', color: '#ffffff', confirmButtonColor: '#ff3d00'
+                            });
+                        }
+                    } else {
+                        Swal.fire({ title: 'Error', text: 'පරිශීලක දත්ත හමුනොවුණි.', icon: 'error', background: '#161b22', color: '#ffffff' });
+                    }
+                })
+                .catch((error) => {
+                    let msg = "Email හෝ Password වැරදියි!";
+                    if(error.code === 'auth/invalid-credential') msg = "ඇතුළත් කළ තොරතුරු පද්ධතියේ නොමැත.";
+                    Swal.fire({ title: 'Denied!', text: msg, icon: 'error', background: '#161b22', color: '#ffffff', confirmButtonColor: '#d33' });
+                });
+        });
+
+        // SIGN UP HANDLE
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('reg-name').value;
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-password').value;
+
+            Swal.fire({
+                title: 'Creating Account...',
+                text: 'Deploying new user data...',
+                allowOutsideClick: false,
+                didOpen: () => { Swal.showLoading(); },
+                background: '#161b22', color: '#ffffff'
+            });
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    updateProfile(user, { displayName: name }).then(async () => {
+                        await setDoc(doc(db, "users", user.uid), {
+                            uid: user.uid,
+                            name: name,
+                            email: email,
+                            status: "pending",
+                            createdAt: new Date().toISOString()
+                        });
+                        await signOut(auth);
+                        Swal.fire({
+                            title: 'Account Created!',
+                            text: 'ගිණුම සාර්ථකව සෑදුවා! Admin විසින් Approve කළ පසු ඔබට ඇතුල් විය හැක.',
+                            icon: 'success',
+                            background: '#161b22', color: '#ffffff', confirmButtonColor: '#00e676'
+                        }).then(() => { window.location.reload(); });
+                    });
+                })
+                .catch((error) => {
+                    let msg = "ගිණුම සෑදීමට නොහැකි වුණා.";
+                    if (error.code === 'auth/email-already-in-use') {
+                        msg = "මෙම Email ලිපිනය දැනටමත් වෙනත් ගිණුමකට පාවිච්චි කර ඇත.";
+                    } else if (error.code === 'auth/weak-password') {
+                        msg = "Password එක අවම වශයෙන් අකුරු/ඉලක්කම් 6ක් විය යුතුය.";
+                    }
+                    Swal.fire({ title: 'Registration Failed', text: msg, icon: 'error', background: '#161b22', color: '#ffffff', confirmButtonColor: '#d33' });
+                });
+        });
+         // 🛡️ Right-Click බ්ලොක් කිරීම
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+// 🛡️ Keyboard Shortcuts (F12, Ctrl+U, Ctrl+Shift+I, Ctrl+Shift+J) බ්ලොක් කිරීම
+document.addEventListener('keydown', function (e) {
+    // F12 බ්ලොක් කිරීම
+    if (e.key === "F12") {
+        e.preventDefault();
+        return false;
+    }
+    // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+Shift+C බ්ලොක් කිරීම
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 'c' || e.key === 'C'))) {
+        e.preventDefault();
+        return false;
+    }
+});
+    </script>
+</body>
+</html>

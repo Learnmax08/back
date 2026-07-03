@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusPlatform - Admin Control Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/bootstrap/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #0b0e14;
+            color: #c9d1d9;
+            font-family: sans-serif;
+            padding-top: 50px;
+        }
+        .admin-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            padding: 30px;
+        }
+        .form-control {
+            background-color: #0d1117 !important;
+            border: 1px solid #30363d !important;
+            color: #ffffff !important;
+            border-radius: 8px;
+            padding: 12px;
+        }
+        .form-control:focus {
+            border-color: #ff9100 !important;
+            box-shadow: 0 0 10px rgba(255, 145, 0, 0.3) !important;
+        }
+        .btn-update-date {
+            background: linear-gradient(135deg, #00d2ff, #0066ff);
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .btn-update-link {
+            background: linear-gradient(135deg, #ff9100, #ff3d00);
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 8px;
+        }
+        .header-title {
+            color: #00d2ff;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="admin-card">
+                    <div class="text-center mb-4">
+                        <i class="fa-solid fa-user-gear fa-3x text-info mb-3"></i>
+                        <h3 class="header-title">Nexus Live Hub Admin</h3>
+                        <p class="text-muted small">ඔයාට ඕන කොටස විතරක් වෙන වෙනම වුණත් මෙතනින් අප්ඩේට් කරන්න පුළුවන්.</p>
+                    </div>
+                    
+                    <div class="p-3 border border-secondary rounded mb-4" style="background: rgba(255,255,255,0.02);">
+                        <label class="form-label fw-bold text-info"><i class="fa-solid fa-calendar-days me-2"></i>1. පන්තිය තියෙන දිනය (Class Date)</label>
+                        <input type="text" id="class-date" class="form-control mb-3" placeholder="උදා: Next Monday at 7.30 PM">
+                        <button onclick="updateDateOnly()" class="btn btn-update-date w-100">
+                            <i class="fa-solid fa-calendar-check me-2"></i>දිනය විතරක් Update කරන්න
+                        </button>
+                    </div>
+
+                    <div class="p-3 border border-secondary rounded" style="background: rgba(255,255,255,0.02);">
+                        <h6 class="text-warning fw-bold mb-3"><i class="fa-solid fa-video me-2"></i>2. Zoom Credentials (ලින්ක් එක දාන වෙලාවට)</h6>
+                        
+                        <div class="mb-3">
+                            <label class="form-label text-white small">Zoom Lecture Link</label>
+                            <input type="url" id="zoom-link" class="form-control" placeholder="https://zoom.us/j/...">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-white small">පන්ති කාමරයේ රහස් පදය (Password)</label>
+                            <input type="text" id="zoom-pass" class="form-control" placeholder="Unlock කරන්න දෙන Password එක">
+                        </div>
+
+                        <button onclick="updateLinkAndPass()" class="btn btn-update-link w-100">
+                            <i class="fa-solid fa-key me-2"></i>Link & Password Update කරන්න
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // පේජ් එක ලෝඩ් වෙද්දී කලින් සේව් කරපුවා කොටු ඇතුළට ගන්නවා
+        document.addEventListener("DOMContentLoaded", function() {
+            if(localStorage.getItem('nexus_live_date')) document.getElementById('class-date').value = localStorage.getItem('nexus_live_date');
+            if(localStorage.getItem('nexus_live_link')) document.getElementById('zoom-link').value = localStorage.getItem('nexus_live_link');
+            if(localStorage.getItem('nexus_live_pass')) document.getElementById('zoom-pass').value = localStorage.getItem('nexus_live_pass');
+        });
+
+        // ෆන්ක්ෂන් 1: දිනය විතරක් අප්ඩේට් කිරීම
+        function updateDateOnly() {
+            const dateVal = document.getElementById('class-date').value;
+            if(!dateVal) { alert("කරුණාකර දිනය ඇතුළත් කරන්න!"); return; }
+            
+            localStorage.setItem('nexus_live_date', dateVal);
+            alert("📅 පන්තියේ දිනය සාර්ථකව වෙනස් වුණා!");
+        }
+
+        // ෆන්ක්ෂන් 2: ලින්ක් එක සහ පස්වර්ඩ් එක අප්ඩේට් කිරීම
+        function updateLinkAndPass() {
+            const linkVal = document.getElementById('zoom-link').value;
+            const passVal = document.getElementById('zoom-pass').value;
+
+            if(!linkVal || !passVal) { alert("ලින්ක් එක සහ පස්වර්ඩ් එක දෙකම පුරවන්න!"); return; }
+
+            localStorage.setItem('nexus_live_link', linkVal);
+            localStorage.setItem('nexus_live_pass', passVal);
+            alert("🔗 Zoom Link එක සහ Password එක සාර්ථකව අප්ඩේට් වුණා!");
+        }
+         // 🛡️ Right-Click බ්ලොක් කිරීම
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+// 🛡️ Keyboard Shortcuts (F12, Ctrl+U, Ctrl+Shift+I, Ctrl+Shift+J) බ්ලොක් කිරීම
+document.addEventListener('keydown', function (e) {
+    // F12 බ්ලොක් කිරීම
+    if (e.key === "F12") {
+        e.preventDefault();
+        return false;
+    }
+    // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+Shift+C බ්ලොක් කිරීම
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 'c' || e.key === 'C'))) {
+        e.preventDefault();
+        return false;
+    }
+});
+    </script>
+</body>
+</html>

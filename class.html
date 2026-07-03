@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Classes</title>
+    
+    <meta name="description" content="NexusPlatform | Advanced Level Combined Maths Online Learning Platform Developed By Single Developers. Hotline Contact : 0718725619">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="N.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="N.png">
+    <link rel="manifest" href="https://cdn.cmwithmn.lk/web-data/Static/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://cdn.cmwithmn.lk/web-data/Static/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#1a9fff">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://cmwithmn.lk/class" />
+    <meta property="og:title" content="NexusPlatform" />
+    <meta property="og:description" content="NexusPlatform | Advanced Level Combined Maths Online Learning Platform Developed By Single Developers. Hotline Contact : 0718725619" />
+    <meta property="og:image" content="https://cdn.cmwithmn.lk/web-data/Static/assets/img/Cmwithmn.lk-meta.jpg" />
+
+    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/fonts/all.css">
+    <link class="rtl" rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/css/animate.min.css"/>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <style>
+        body {
+            background-color: #0b0e14 !important;
+            color: #c9d1d9 !important;
+        }
+        
+        /* --- Sidebar Styling --- */
+        .sider {
+            position: fixed !important;
+            top: 70px !important;
+            left: 0 !important;
+            width: 90px !important;
+            height: calc(100vh - 70px) !important;
+            z-index: 1000;
+            background: rgba(13, 17, 23, 0.85) !important;
+            border-right: 1px solid #21262d;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease-in-out; 
+            overflow: hidden !important; 
+        }
+
+        .sider__main_content {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            height: 100% !important;
+            padding: 10px 0 !important;
+            box-sizing: border-box !important;
+        }
+
+        .sider__btn__container {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 1.2vh !important; 
+            justify-content: flex-start !important;
+        }
+
+        .sider__main_content .nav__link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            margin: 0 auto !important;
+            border-radius: 12px;
+            background: #161b22;
+            border: 1px solid #30363d;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+        
+        .sider__main_content .nav__link i {
+            font-size: 1.25rem;
+            color: #8b949e;
+        }
+
+        .sider__main_content .nav__link.sider__green:hover,
+        .sider__main_content .nav__link.sider__green.selected {
+            border-color: #00e676 !important;
+            box-shadow: 0 0 18px rgba(0, 230, 118, 0.45);
+            background: rgba(0, 230, 118, 0.08) !important;
+        }
+        .sider__main_content .nav__link.sider__green:hover i,
+        .sider__main_content .nav__link.sider__green.selected i { 
+            color: #00e676 !important; 
+        }
+
+        #content-wrapper {
+            margin-left: 90px !important;
+            transition: margin-left 0.3s ease-in-out !important;
+        }
+
+        .navbar {
+            background: rgba(13, 17, 23, 0.85) !important;
+            border-bottom: 2px solid #00d2ff !important; 
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.25) !important;
+            backdrop-filter: blur(10px);
+        }
+        .navbar-brand {
+            color: #ffffff !important;
+            font-weight: 800 !important;
+        }
+
+        /* Cyberpunk Dark Cards */
+        .card.shadow {
+            background: #161b22 !important;
+            border: 1px solid #30363d !important;
+            border-radius: 14px !important;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 230, 118, 0.15) !important;
+        }
+        
+        .text-dark { color: #ffffff !important; }
+        .text-primary { color: #00d2ff !important; }
+
+        /* Card Hover Graphic Enhancements */
+        .custom-card-hover {
+            border: 1px solid #30363d !important;
+        }
+        .custom-card-hover:hover {
+            transform: translateY(-5px);
+            border: 1px solid #00e676 !important;
+            box-shadow: 0 10px 25px rgba(0, 230, 118, 0.2) !important;
+        }
+        .custom-card-hover:hover .card-img-top {
+            transform: scale(1.05);
+            opacity: 1 !important;
+        }
+        .custom-btn-hover:hover {
+            background: #ffffff !important;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4) !important;
+            transform: scale(1.01);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebarbg" id="sidebarbg">
+        <nav class="sider bg-blur" id="sider__menu">
+            <div class="sider__main_content">
+                <div class="sider__btn__container">
+                    <div class="nav__link__wrapper">
+                        <a id="home_nav_btn" class="nav__link sider__blue" href="dashboard.html">
+                            <div><i class="fa-solid fa-gamepad"></i></div>
+                        </a>
+                    </div>
+                    <div class="nav__link__wrapper selected">
+                        <a id="my_class_nav_btn" class="nav__link sider__green selected" href="class.html">
+                            <div><i class="fa-solid fa-khanda"></i></div>
+                        </a>
+                    </div>
+                    <div class="nav__link__wrapper">
+                        <a id="notices_nav_btn" class="nav__link sider__orange" href="notices.html">
+                            <div><i class="fa-solid fa-bullhorn"></i></div>
+                        </a>
+                    </div>
+                    <div class="nav__link__wrapper">
+                        <a id="marksanalyze_nav_btn" class="nav__link sider__pink" href="marks-analyze.html">
+                            <div><i class="fa-solid fa-trophy"></i></div>
+                        </a>
+                    </div>
+                    <div class="nav__link__wrapper">
+                        <a id="store_nav_btn" class="nav__link sider__purple" href="about.html">
+                            <div><i class="fa-solid fa-gem"></i></div>
+                        </a>
+                    </div>
+                    <div class="nav__link__wrapper">
+                        <a id="profile_nav_btn" class="nav__link sider__yellow" href="profile.html">
+                            <div><i class="fa-solid fa-user-shield"></i></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav__bootom">
+                    <a class="nav__link sider__red" id="nav_logout_btn" style="cursor: pointer;">
+                        <div><i class="fa-solid fa-power-off"></i></div>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div> 
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-blur shadow">
+        <div class="justify-content-between container-fluid">
+            <div class="d-flex align-items-center">
+                <img src="N.png" width="35px">
+                <a class="navbar-brand ms-2 mb-0 h1 fs-5">NexusPlatform</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="d-flex flex-column" id="content-wrapper" style="margin-top: 90px;">
+        <div id="content">
+            <div class="container-fluid">   
+                
+                <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                    <h3 class="text-dark mb-3 mb-sm-0">My Class</h3>
+                    <button id="clear-all-classes-btn" class="btn btn-danger btn-sm rounded-3 px-3 py-2 d-flex align-items-center gap-2" style="font-weight: 600; box-shadow: 0 4px 12px rgba(220, 53, 69, 0.2);">
+                        <i class="fa-solid fa-trash-can"></i> Clear All Classes
+                    </button>
+                </div>
+
+                <div class="mb-5">
+                    <h4 class="fw-bold text-uppercase mb-4" style="font-size: 1.1rem; border-left: 4px solid #00e676; color: #00e676 !important; padding-left: 10px; text-shadow: 0 0 10px rgba(0, 230, 118, 0.4);">
+                        <i class="fa-solid fa-shield-halved me-2"></i>Active Quests (My Enrolled Classes)
+                    </h4>
+
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4" id="enrolled-courses-container">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.cmwithmn.lk/web-data/Static/assets/bootstrap/js/bootstrap.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const container = document.getElementById('enrolled-courses-container');
+            const clearBtn = document.getElementById('clear-all-classes-btn');
+            
+            // localStorage එකෙන් Data කියවීම
+            let enrolledClasses = JSON.parse(localStorage.getItem('enrolledClasses')) || [];
+        
+            // කිසිම ක්ලාස් එකක් නැත්නම් පෙන්වන මැසේජ් එක සහ බටන් එක හංගන එක
+            if (enrolledClasses.length === 0) {
+                if(clearBtn) clearBtn.style.display = 'none';
+                container.innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <p class="text-muted fs-5">You haven't enrolled in any classes yet.</p>
+                        <a href="about.html" class="btn btn-outline-info btn-sm">Browse Classes</a>
+                    </div>`;
+                return;
+            }
+        
+            // පරණ දත්ත ක්ලියර් කිරීම
+            container.innerHTML = '';
+        
+            // dynamic විදිහට හැම එකකටම කාඩ් එකක් සෑදීම
+            enrolledClasses.forEach(course => {
+                let rawClassName = course.className || course.title || course.name || '';
+                let currentClassName = rawClassName;
+        
+                if (rawClassName.toLowerCase().trim() === 'sheni' || rawClassName.toLowerCase().trim() === 'shreni') {
+                    currentClassName = 'ශ්‍රේණි';
+                }
+        
+                const currentClassImage = course.classImage || course.image || course.thumbnail || 'images/default.jpg';
+                const currentTutorName = course.tutorName || course.tutor || 'Tutor Name';
+                
+                let currentPlaylistLink = 'playlist.html'; 
+                const normalizedClassName = rawClassName.toLowerCase().trim();
+        
+                switch (normalizedClassName) {
+                    case 'ත්‍රිකෝණමිතිය':
+                        currentPlaylistLink = 'playlist.html';
+                        break;
+                    case 'ශේෂ ප්‍රමේය හා සාධක ප්‍රමේය':
+                        currentPlaylistLink = 'playlist -1.html';
+                        break;
+                    case 'සීමාව':
+                        currentPlaylistLink = 'playlist -2.html';
+                        break;
+                    case 'අවකලනය':
+                        currentPlaylistLink = 'playlist -3.html';
+                        break;
+                    case 'භින්න භාග':
+                        currentPlaylistLink = 'playlist -4.html';
+                        break;
+                    case 'මාපාංක ප්‍රස්ථාර':
+                        currentPlaylistLink = 'playlist -5.html';
+                        break;
+                    case 'සරල රේඛාව':
+                        currentPlaylistLink = 'playlist -6.html';
+                        break;
+                    case 'දෛශික':
+                        currentPlaylistLink = 'playlist -7.html';
+                        break;
+                    case 'ඒකතල බල පද්ධති':
+                        currentPlaylistLink = 'playlist -8.html';
+                        break;
+                    case 'සාපේක්ෂ ප්‍රවේගය':
+                        currentPlaylistLink = 'playlist -9.html';
+                        break;
+                    case 'වර්ගජ සමීකරණ':
+                        currentPlaylistLink = 'playlist -10.html';
+                        break;
+                    case 'ප්‍රවේග කාල වක්‍ර':
+                        currentPlaylistLink = 'playlist -11.html';
+                        break;
+                    case 'sheni':
+                    case 'shreni':
+                        currentPlaylistLink = 'playlist -12.html';
+                        break;
+                    default:
+                        currentPlaylistLink = course.id ? `playlist -${course.id}.html` : (course.playlistUrl || course.link || 'playlist.html');
+                        break;
+                }
+        
+                const cardHTML = `
+                    <div class="col">
+                        <div class="card h-100 shadow border-0 custom-card-hover" style="background: #161b22; border-radius: 16px; overflow: hidden; transition: all 0.3s ease-in-out;">
+                            <div class="position-relative overflow-hidden" style="height: 180px; background: #0b0e14;">
+                                <img src="${currentClassImage}" alt="Thumbnail" class="img-fluid w-100 h-100 object-fit-cover card-img-top" style="opacity: 0.85; transition: transform 0.4s ease;">
+                                <span class="badge position-absolute top-0 end-0 m-3 px-2.5 py-1.5 rounded-pill text-white bg-success small d-flex align-items-center gap-1" style="font-size: 0.75rem; background-color: #00e676 !important; color: #0d1117 !important; font-weight: 700; box-shadow: 0 0 10px rgba(0, 230, 118, 0.4);">
+                                    <i class="fa-solid fa-circle-check"></i> Enrolled
+                                </span>
+                                <div class="position-absolute bottom-0 start-0 w-100 h-50" style="background: linear-gradient(to top, #161b22, transparent);"></div>
+                            </div>
+                            <div class="card-body p-4 d-flex flex-column justify-content-between" style="position: relative; z-index: 2; margin-top: -10px;">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img src="images/pic-6.jpg" alt="Tutor" class="rounded-circle me-3 border" width="42" height="42" style="border-color: #30363d !important; object-fit: cover;">
+                                    <div>
+                                        <h6 class="mb-0 fw-bold text-white" style="font-size: 0.88rem; letter-spacing: 0.3px;">${currentTutorName}</h6>
+                                        <small class="text-muted d-flex align-items-center gap-1" style="font-size: 0.72rem;">
+                                            <span style="color: #00e676; text-shadow: 0 0 5px #00e676;">●</span> Status: Active
+                                        </small>
+                                    </div>
+                                </div>
+                                <h5 class="card-title fw-bold text-white mb-4" style="min-height: 44px; font-size: 0.95rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                                    ${currentClassName}
+                                </h5>
+                                <a href="${currentPlaylistLink}" class="btn btn-sm w-100 rounded-3 py-2.5 d-flex align-items-center justify-content-center gap-2 custom-btn-hover" style="background: #00e676 !important; color: #0d1117 !important; border: none; font-weight: 700; font-size: 0.88rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 230, 118, 0.25);">
+                                    <i class="fa-solid fa-circle-play fs-5"></i> Start Learning
+                                </a>
+                            </div>
+                        </div>
+                    </div>`;
+                container.innerHTML += cardHTML;
+            });
+        
+            // 🛠️ Clear Button එක ක්ලික් කරද්දී ක්‍රියාත්මක වන Modern කොටස
+            if (clearBtn) {
+                clearBtn.addEventListener('click', function() {
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "ඔයාට ඇත්තටම My Classes වල තියෙන හැම ක්ලාස් එකක්ම අයින් කරන්න ඕනෙද?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#dc3545',
+                        cancelButtonColor: '#30363d',
+                        confirmButtonText: '<i class="fa-solid fa-trash-can"></i> Yes, Clear All!',
+                        cancelButtonText: 'Cancel',
+                        background: '#161b22',
+                        color: '#ffffff',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            localStorage.removeItem('enrolledClasses');
+                            
+                            Swal.fire({
+                                title: 'Cleared!',
+                                text: 'සියලුම පන්ති සාර්ථකව ඉවත් කළා.',
+                                icon: 'success',
+                                background: '#161b22',
+                                color: '#ffffff',
+                                confirmButtonColor: '#00e676',
+                                timer: 1500,
+                                showConfirmButton: false
+                            });
+        
+                            setTimeout(() => {
+                                location.reload();
+                            }, 1500);
+                        }
+                    });
+                });
+            }
+        });
+
+         // 🛡️ Right-Click බ්ලොක් කිරීම
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+// 🛡️ Keyboard Shortcuts (F12, Ctrl+U, Ctrl+Shift+I, Ctrl+Shift+J) බ්ලොක් කිරීම
+document.addEventListener('keydown', function (e) {
+    // F12 බ්ලොක් කිරීම
+    if (e.key === "F12") {
+        e.preventDefault();
+        return false;
+    }
+    // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+Shift+C බ්ලොක් කිරීම
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 'c' || e.key === 'C'))) {
+        e.preventDefault();
+        return false;
+    }
+});
+    </script>
+</body>
+</html>

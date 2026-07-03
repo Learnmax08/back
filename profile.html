@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://cmwithmn.lk/profile" />
+    <meta property="og:title" content="NexusPlatform" />
+    <meta property="og:description" content="NexusPlatform | Advanced Level Combined Maths Online Learning Platform Developed By Single Developers. Hotline Contact : 0718725619" />
+    <meta property="og:image" content="https://cdn.cmwithmn.lk/web-data/Static/assets/img/Cmwithmn.lk-meta.jpg" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="http://cmwithmn.lk/profile" />
+    <meta property="twitter:title" content="NexusPlatform" />
+    <meta property="twitter:description" content="NexusPlatform | Advanced Level Combined Maths Online Learning Platform Developed By Single Developers. Hotline Contact : 0718725619" />
+    <meta property="twitter:image" content="https://cdn.cmwithmn.lk/web-data/Static/assets/img/Cmwithmn.lk-meta.jpg" />
+    <meta name="keywords" content="CMwithMN, A/L Combined Maths, Advanced Level, Sri Lanka, Combined Maths Education, Online Learning, CM Learning, Combined Maths, හීන කියන්නෙම target වලට, Madushan Neranjan, SingleDevelopers">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W8DGMMKFPN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W8DGMMKFPN');
+    </script>
+
+    <link class="ui-theme" rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/bootstrap/css/bootstrap.min.css?szsszzz">
+    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/css/style.css?sdrsselesdctszs">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap">
+    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/fonts/all.css">
+    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/css/animate.min.css"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="N.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="N.png">
+    
+    <script src="https://analytics.sdev.lk/api/script.js" data-site-id="b3e24a50835e" defer></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+    body {
+        background-color: #0b0e14 !important;
+        color: #c9d1d9 !important;
+    }
+    
+    /* --- 🛠️ Premium Seamless Sidebar Styling (Fixed, No Scrollbar) --- */
+    .sider {
+        position: fixed !important;
+        top: 70px !important; 
+        left: 0 !important;
+        width: 90px !important; 
+        height: calc(100vh - 70px) !important;
+        z-index: 1000;
+        background: rgba(13, 17, 23, 0.85) !important;
+        border-right: 1px solid #21262d;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease-in-out; 
+        overflow: hidden !important; 
+    }
+
+    .sider__main_content {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important; 
+        height: 100% !important;
+        padding: 10px 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .sider__btn__container {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.2vh !important; 
+        justify-content: flex-start !important;
+    }
+
+    .sider__main_content .nav__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto !important; 
+        border-radius: 12px;
+        background: #161b22;
+        border: 1px solid #30363d;
+        position: relative;
+        transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                    border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                    box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    
+    .sider__main_content .nav__link i {
+        font-size: 1.25rem;
+        color: #8b949e;
+        transition: color 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .sider__main_content .nav__link .nav__name {
+        display: none; 
+    }
+
+    .sider__main_content .nav__link:hover i,
+    .sider__main_content .nav__link.selected i {
+        transform: scale(1.12);
+    }
+
+    #content-wrapper {
+        margin-left: 90px !important; 
+        transition: margin-left 0.3s ease-in-out !important;
+    }
+
+    /* Sidebar Colors */
+    .sider__main_content .nav__link.sider__blue:hover,
+    .sider__main_content .nav__link.sider__blue.selected {
+        border-color: #00d2ff !important;
+        box-shadow: 0 0 18px rgba(0, 210, 255, 0.45);
+        background: rgba(0, 210, 255, 0.08) !important;
+    }
+    .sider__main_content .nav__link.sider__blue:hover i,
+    .sider__main_content .nav__link.sider__blue.selected i { 
+        color: #00d2ff !important; 
+        text-shadow: 0 0 10px rgba(0, 210, 255, 0.6);
+    }
+
+    .sider__main_content .nav__link.sider__green:hover,
+    .sider__main_content .nav__link.sider__green.selected {
+        border-color: #00e676 !important;
+        box-shadow: 0 0 18px rgba(0, 230, 118, 0.45);
+        background: rgba(0, 230, 118, 0.08) !important;
+    }
+    .sider__main_content .nav__link.sider__green:hover i,
+    .sider__main_content .nav__link.sider__green.selected i { 
+        color: #00e676 !important; 
+        text-shadow: 0 0 10px rgba(0, 230, 118, 0.6);
+    }
+
+    .sider__main_content .nav__link.sider__orange:hover,
+    .sider__main_content .nav__link.sider__orange.selected {
+        border-color: #ff9100 !important;
+        box-shadow: 0 0 18px rgba(255, 145, 0, 0.45);
+        background: rgba(255, 145, 0, 0.08) !important;
+    }
+    .sider__main_content .nav__link.sider__orange:hover i,
+    .sider__main_content .nav__link.sider__orange.selected i { 
+        color: #ff9100 !important; 
+        text-shadow: 0 0 10px rgba(255, 145, 0, 0.6);
+    }
+
+    .sider__main_content .nav__link.sider__pink:hover,
+    .sider__main_content .nav__link.sider__pink.selected {
+        border-color: #ff007f !important;
+        box-shadow: 0 0 18px rgba(255, 0, 127, 0.45);
+        background: rgba(255, 0, 127, 0.08) !important;
+    }
+    .sider__main_content .nav__link.sider__pink:hover i,
+    .sider__main_content .nav__link.sider__pink.selected i { 
+        color: #ff007f !important; 
+        text-shadow: 0 0 10px rgba(255, 0, 127, 0.6);
+    }
+
+    .sider__main_content .nav__link.sider__purple:hover,
+    .sider__main_content .nav__link.sider__purple.selected {
+        border-color: #b026ff !important;
+        box-shadow: 0 0 18px rgba(176, 38, 255, 0.45);
+        background: rgba(176, 38, 255, 0.08) !important;
+    }
+    .sider__main_content .nav__link.sider__purple:hover i,
+    .sider__main_content .nav__link.sider__purple.selected i { 
+        color: #b026ff !important; 
+        text-shadow: 0 0 10px rgba(176, 38, 255, 0.6);
+    }
+
+    .sider__main_content .nav__link.sider__yellow:hover,
+    .sider__main_content .nav__link.sider__yellow.selected {
+        border-color: #ffd600 !important;
+        box-shadow: 0 0 18px rgba(255, 214, 0, 0.45);
+        background: rgba(255, 214, 0, 0.08) !important;
+    }
+    .sider__main_content .nav__link.sider__yellow:hover i,
+    .sider__main_content .nav__link.sider__yellow.selected i { 
+        color: #ffd600 !important; 
+        text-shadow: 0 0 10px rgba(255, 214, 0, 0.6);
+    }
+
+    .sider__main_content .nav__link.sider__red:hover {
+        border-color: #ff3d00 !important;
+        box-shadow: 0 0 18px rgba(255, 61, 0, 0.45);
+        background: rgba(255, 61, 0, 0.08) !important;
+    }
+    .sider__main_content .nav__link.sider__red:hover i { 
+        color: #ff3d00 !important; 
+        text-shadow: 0 0 10px rgba(255, 61, 0, 0.6);
+    }
+
+    .navbar {
+        background: rgba(13, 17, 23, 0.85) !important;
+        border-bottom: 2px solid #00d2ff !important; 
+        box-shadow: 0 0 15px rgba(0, 210, 255, 0.25) !important;
+        backdrop-filter: blur(10px);
+    }
+    .navbar-brand {
+        color: #ffffff !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.5px;
+    }
+
+    .card.shadow {
+        background: #161b22 !important;
+        border: 1px solid #30363d !important;
+        border-radius: 14px !important;
+        overflow: hidden;
+    }
+    .card-header {
+        background: rgba(22, 27, 34, 0.7) !important;
+        border-bottom: 1px solid #30363d !important;
+    }
+    
+    .text-dark { color: #ffffff !important; }
+    .text-primary { color: #00d2ff !important; }
+    
+    .avatar-glow {
+        border: 3px solid #00d2ff;
+        box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+        padding: 3px;
+        background: #0d1117;
+    }
+
+    .form-control, .custom-select {
+        background-color: #0d1117 !important;
+        border: 1px solid #30363d !important;
+        color: #ffffff !important;
+        border-radius: 8px;
+        height: 45px;
+    }
+    .form-control:focus, .custom-select:focus {
+        border-color: #00d2ff !important;
+        box-shadow: 0 0 10px rgba(0, 210, 255, 0.3) !important;
+    }
+    .form-label {
+        color: #8b949e !important;
+        font-weight: 600;
+    }
+    .form-label i {
+        color: #00d2ff;
+        margin-right: 8px;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #00d2ff, #0066ff) !important;
+        border: none !important;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+        transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+        box-shadow: 0 4px 20px rgba(0, 210, 255, 0.5);
+        transform: translateY(-1px);
+    }
+    .btn-blue {
+        background-color: #1f6feb !important;
+        color: #ffffff !important;
+        border: none;
+    }
+    .btn-light {
+        background-color: #21262d !important;
+        border: 1px solid #30363d !important;
+        color: #c9d1d9 !important;
+    }
+    .btn-light:hover {
+        background-color: #30363d !important;
+        color: #ffffff !important;
+    }
+
+    .modal-content {
+        background-color: #161b22 !important;
+        border: 1px solid #00e676 !important;
+        box-shadow: 0 0 25px rgba(0, 230, 118, 0.2);
+        color: #ffffff;
+    }
+    .modal-header { border-bottom: 1px solid #30363d; }
+    .modal-footer { border-top: 1px solid #30363d; }
+
+    @media (max-height: 620px) {
+        .sider__main_content .nav__link {
+            width: 44px !important;
+            height: 44px !important;
+            border-radius: 10px !important;
+        }
+        .sider__main_content .nav__link i {
+            font-size: 1.1rem !important;
+        }
+        .sider__btn__container {
+            gap: 0.8vh !important;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="sidebarbg" id="sidebarbg">
+            <nav class="sider bg-blur" id="sider__menu">
+                <div class="sider__main_content">
+                    <div class="sider__btn__container">
+                        <a id="home_nav_btn" class="nav__link sider__blue " href="dashboard.html">
+                            <div><i class="fa-solid fa-gamepad"></i></div>
+                            <span class="nav__name">Lobby Dashboard</span>
+                        </a>
+                        <a id="my_class_nav_btn" class="nav__link sider__green" href="class.html">
+                            <div><i class="fa-solid fa-khanda"></i></div>
+                            <span class="nav__name">Campaign Quests</span>
+                        </a>
+                        <a id="notices_nav_btn" class="nav__link sider__orange" href="notices.html">
+                            <div><i class="fa-solid fa-bullhorn"></i></div>
+                            <span class="nav__name">Guild Board</span>
+                        </a>
+                        <a id="marksanalyze_nav_btn" class="nav__link sider__pink" href="marks-analyze.html">
+                            <div><i class="fa-solid fa-trophy"></i></div>
+                            <span class="nav__name">Leaderboard</span>
+                        </a>
+                        <a id="store_nav_btn" class="nav__link sider__purple" href="about.html">
+                            <div><i class="fa-solid fa-gem"></i></div>
+                            <span class="nav__name">About Crew</span>
+                        </a>
+                        <a id="profile_nav_btn" class="nav__link sider__yellow selected" href="profile.html">
+                            <div><i class="fa-solid fa-user-shield"></i></div>
+                            <span class="nav__name">Avatar Stats</span>
+                        </a>
+                    </div>
+                    <div class="nav__bootom">
+                        <a class="nav__link sider__red" id="nav_logout_btn" style="cursor: pointer;">
+                            <div><i class="fa-solid fa-power-off"></i></div>
+                            <span class="nav__name">Quit Game</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div> 
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-blur shadow">
+            <div class="justify-content-between container-fluid">
+               <div class="d-flex align-items-center">
+                <img src="N.png" width="35px">
+                <a class="navbar-brand ms-2 mb-0 h1 fs-5">NexusPlatform</a>
+            </div>
+                    
+            
+            </div>
+        </nav>
+
+        <div class="d-flex flex-column" id="content-wrapper" style="padding-top: 85px;">
+            <div id="content">
+                <div class="container-fluid">   
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <table style="margin-left: 0; margin-right: 0;">
+                            <tr>
+                                <td style="border: none;"><tgs-player background="transparent" speed="1" style="width: 34px;height: 34px;" autoplay loop mode="normal" src="https://cdn.cmwithmn.lk/web-data/Static/assets/anim/sunglz-anim.tgs"></tgs-player></td>
+                                <td style="border: none;"><h3 class="text-dark mb-0 ms-2 fw-bold" id="page_title">My Profile</h3></td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-lg-4">
+                            <div class="card shadow mb-3">
+                                <div class="card-header d-flex justify-content-between align-items-center py-3">
+                                    <p class="text-primary m-0 fw-bold"><i class="fa-solid fa-server me-2"></i>Institute : Online</p>
+                                    <button class="btn btn-light btn-round mb-0" id="card_logout_btn">
+                                        <i class="fa-solid fa-power-off text-danger"></i>
+                                    </button>
+                                </div>
+                                <div class="card-body text-center shadow">
+                                    <div style="position: relative; display: inline-block;">
+                                        <img id="avatar_img" class="rounded-circle mb-3 mt-4 avatar-glow" src="https://cdn-icons-png.flaticon.com/512/616/616712.png" width="160" height="160" style="object-fit: cover;" />
+                                        <label id="avatar_upload_label" for="avatar_input" class="btn btn-sm btn-primary rounded-circle" style="position: absolute; bottom: 15px; right: 5px; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                                            <i class="fa-solid fa-camera m-0"></i>
+                                        </label>
+                                        <input type="file" id="avatar_input" accept="image/*" style="display: none;" onchange="previewAndSaveAvatar(event)" />
+                                    </div>
+                                    <h4 class="mb-1 text-white fw-bold" id="display_full_name">Loading...</h4>
+                                    <span class="badge bg-dark border border-secondary text-info px-3 py-2 rounded-pill font-monospace" id="display_uid"><i class="fa-solid fa-id-card-clip me-1"></i> UID: --------</span>
+                                    
+                                    <hr class="border-secondary my-4">
+                                    
+                                    <div class="col mt-3">
+                                        <label class="form-label row ms-1 text-start"><strong><i class="fa-solid fa-headset me-2"></i>Web site Support</strong></label>
+                                        <div class="row">
+                                            <div class="col-md-auto m-2">
+                                                <div>
+                                                    <a class="btn btn-blue btn-sm px-3 fw-bold" href="https://t.me/Nexusbook_live_bot" target="_blank">
+                                                        <i class="fa-brands fa-telegram me-1"></i> @admin
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-8">
+                            <div class="card shadow mb-3">
+                                <div class="card-header py-3">
+                                    <p class="text-primary m-0 fw-bold"><i class="fa-solid fa-user-shield me-2"></i>Student Info</p>
+                                </div>
+                                <div class="card-body">
+                                    <form id="studentInfoForm" onsubmit="saveStudentInfo(event)">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="name"><i class="fa-solid fa-signature"></i><strong>Name</strong></label>
+                                                    <input id="name" class="form-control" type="text" placeholder="Full Name" name="name" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="email"><i class="fa-solid fa-envelope"></i><strong>Email Address</strong></label>
+                                                    <input id="email" class="form-control" type="email" placeholder="user@gmail.com" name="email" disabled />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="first_name"><i class="fa-solid fa-user"></i><strong>First Name</strong></label>
+                                                    <input id="first_name" class="form-control" type="text" placeholder="First Name" name="first_name" />
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="last_name"><i class="fa-solid fa-user"></i><strong>Last Name</strong></label>
+                                                    <input id="last_name" class="form-control" type="text" placeholder="Last Name" name="last_name" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="telegram_username"><i class="fa-brands fa-telegram"></i><strong>Telegram Username</strong></label>
+                                                    <input id="telegram_username_id" class="form-control" type="text" name="telegram_username" placeholder="@Username" />
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="exam_year"><i class="fa-solid fa-graduation-cap"></i><strong>Exam Year</strong></label>
+                                                    <select name="exam_year" id="id_exam_year" class="form-control custom-select">
+                                                        <option value="2026">2026 A/L</option>
+                                                        <option value="2027">2027 A/L</option>
+                                                        <option value="2028">2028 A/L</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="save_btn_container">
+                                            <div class="col-md-auto">
+                                                <div class="mb-3 mt-2">
+                                                    <button class="btn btn-primary px-4 py-2" type="submit" id="save_btn">
+                                                        <i class="fa-solid fa-floppy-disk me-2"></i>Save Info
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <footer class="bg-transparent sticky-footer border-top border-dark mt-5 py-4">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright fs-6 text-muted"><span>Nexus Learning Platform © 2026</span></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut, updateProfile } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        // 🔐 Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCmciwmEbSDgA5PhCY12a_vKqXl4GDBeZ8",
+            authDomain: "school-project-5fe93.firebaseapp.com",
+            projectId: "school-project-5fe93",
+            storageBucket: "school-project-5fe93.firebasestorage.app",
+            messagingSenderId: "548925209782",
+            appId: "1:548925209782:web:cea0aac7d41a510b2fba17",
+            measurementId: "G-5MG8T54708"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        let currentUser = null;
+        let targetUid = null;
+
+        // 🔍 URL එකෙන් UID එක කියවා ගැනීම (e.g., profile.html?uid=xyz)
+        const urlParams = new URLSearchParams(window.location.search);
+        targetUid = urlParams.get('uid');
+
+        // 🔄 Real-time User Authentication Check
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                currentUser = user;
+                
+                // URL එකේ uid එකක් නැත්නම්, ලොග් වෙලා ඉන්න කෙනාගේ UID එක ගන්නවා
+                if (!targetUid) {
+                    targetUid = user.uid;
+                }
+
+                // වෙන කෙනෙකුගේ profile එකක් නම් inputs සහ buttons වෙනස් කිරීම
+                if (targetUid !== user.uid) {
+                    document.getElementById('page_title').innerText = "Student Profile";
+                    document.getElementById('avatar_upload_label').style.display = 'none'; // කැමරා බටන් එක අයින් කරනවා
+                    document.getElementById('save_btn_container').style.display = 'none'; // සේව් බටන් එක අයින් කරනවා
+                    
+                    // Inputs disable කිරීම (වෙනස් කිරීමට නොහැකි වන සේ)
+                    document.getElementById('name').disabled = true;
+                    document.getElementById('first_name').disabled = true;
+                    document.getElementById('last_name').disabled = true;
+                    document.getElementById('telegram_username_id').disabled = true;
+                    document.getElementById('id_exam_year').disabled = true;
+                }
+
+                // UID එක UI එකට දැමීම
+                document.getElementById('display_uid').innerHTML = `<i class="fa-solid fa-id-card-clip me-1"></i> UID: ${targetUid}`;
+
+                // 1. Target UID එකට අදාළව Firestore Database එකෙන් දත්ත කියවීම
+                const userDocRef = doc(db, "students", targetUid);
+                const userDocSnap = await getDoc(userDocRef);
+
+                if (userDocSnap.exists()) {
+                    const data = userDocSnap.data();
+                    
+                    // Firestore එකේ තියෙන දත්ත Inputs වලට පිරවීම
+                    document.getElementById('name').value = data.fullName || "";
+                    document.getElementById('display_full_name').innerText = data.fullName || "Nexus User";
+                    document.getElementById('email').value = data.email || "No Email Provided";
+                    document.getElementById('first_name').value = data.firstName || "";
+                    document.getElementById('last_name').value = data.lastName || "";
+                    document.getElementById('telegram_username_id').value = data.telegram || "";
+                    document.getElementById('id_exam_year').value = data.examYear || "2027";
+                    
+                    if(data.avatar) {
+                        document.getElementById('avatar_img').src = data.avatar;
+                    }
+                } else {
+                    // Firestore එකේ නැත්නම් සහ තමන්ගේම නම් Auth account එකෙන් නම ගන්නවා
+                    if (targetUid === user.uid) {
+                        document.getElementById('name').value = user.displayName || "";
+                        document.getElementById('display_full_name').innerText = user.displayName || "Nexus User";
+                        document.getElementById('email').value = user.email;
+                    } else {
+                        document.getElementById('display_full_name').innerText = "Unknown User";
+                        document.getElementById('name').value = "Unknown User";
+                    }
+                }
+
+            } else {
+                // ලොග් වෙලා නැත්නම් Auth පිටුවට හරවා යැවීම
+                window.location.href = 'index.html';
+            }
+        });
+
+        // 💾 Data Save කරන ප්‍රධාන Function එක (තමන්ගේ profile එක නම් පමණි)
+        window.saveStudentInfo = async function(event) {
+            event.preventDefault();
+            if (!currentUser || targetUid !== currentUser.uid) return;
+
+            const saveBtn = document.getElementById('save_btn');
+            saveBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin me-2"></i>Saving...`;
+            saveBtn.disabled = true;
+
+            const fullName = document.getElementById('name').value;
+            const firstName = document.getElementById('first_name').value;
+            const lastName = document.getElementById('last_name').value;
+            const telegram = document.getElementById('telegram_username_id').value;
+            const examYear = document.getElementById('id_exam_year').value;
+            const avatarSrc = document.getElementById('avatar_img').src;
+
+            try {
+                // 1. Firebase Authentication Profile එක අප්ඩේට් කිරීම
+                await updateProfile(currentUser, { displayName: fullName });
+
+                // 2. Firebase Firestore Database එකට සේව් කිරීම
+                await setDoc(doc(db, "students", currentUser.uid), {
+                    uid: currentUser.uid,
+                    fullName: fullName,
+                    email: currentUser.email,
+                    firstName: firstName,
+                    lastName: lastName,
+                    telegram: telegram,
+                    examYear: examYear,
+                    avatar: avatarSrc,
+                    updatedAt: new Date().toISOString()
+                }, { merge: true });
+
+                // LocalStorage එකත් අප්ඩේට් කිරීම
+                localStorage.setItem('student_name', fullName);
+                localStorage.setItem('student_email', currentUser.email);
+                localStorage.setItem('student_first_name', firstName);
+                localStorage.setItem('student_last_name', lastName);
+                localStorage.setItem('student_telegram', telegram);
+                localStorage.setItem('student_exam_year', examYear);
+                localStorage.setItem('student_avatar', avatarSrc);
+
+                document.getElementById('display_full_name').innerText = fullName;
+                window.dispatchEvent(new Event('storage'));
+
+                // Success Alert එක
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Data Synchronized!',
+                    text: 'ඔබගේ තොරතුරු සාර්ථකව සුරැකිනු ලැබුවා!',
+                    background: '#161b22',
+                    color: '#ffffff',
+                    confirmButtonColor: '#00d2ff'
+                });
+
+            } catch (error) {
+                console.error(error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    text: 'දත්ත සුරැකීමේදී ගැටලුවක් ඇතිවිය: ' + error.message,
+                    background: '#161b22',
+                    color: '#ffffff'
+                });
+            } finally {
+                saveBtn.innerHTML = `<i class="fa-solid fa-floppy-disk me-2"></i>Save Info`;
+                saveBtn.disabled = false;
+            }
+        };
+
+        // 📷 Avatar Preview Function
+        window.previewAndSaveAvatar = function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('avatar_img').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+
+        // 🚪 Logout Handler
+        const handleLogout = () => {
+            Swal.fire({
+                title: 'Quit Game?',
+                text: "ඔබට පද්ධතියෙන් ඉවත් වීමට අවශ්‍යද?",
+                icon: 'warning',
+                showCancelButton: true,
+                background: '#161b22',
+                color: '#ffffff',
+                confirmButtonColor: '#ff3d00',
+                cancelButtonColor: '#30363d',
+                confirmButtonText: 'Yes, Exit!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    signOut(auth).then(() => {
+                        localStorage.clear();
+                        window.location.href = 'index.html';
+                    });
+                }
+            });
+        };
+
+        document.getElementById('nav_logout_btn').addEventListener('click', handleLogout);
+        document.getElementById('card_logout_btn').addEventListener('click', handleLogout);
+        // 🛡️ Right-Click බ්ලොක් කිරීම
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+// 🛡️ Keyboard Shortcuts (F12, Ctrl+U, Ctrl+Shift+I, Ctrl+Shift+J) බ්ලොක් කිරීම
+document.addEventListener('keydown', function (e) {
+    // F12 බ්ලොක් කිරීම
+    if (e.key === "F12") {
+        e.preventDefault();
+        return false;
+    }
+    // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+Shift+C බ්ලොක් කිරීම
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 'c' || e.key === 'C'))) {
+        e.preventDefault();
+        return false;
+    }
+});
+    </script>
+
+    <script src="https://cdn.cmwithmn.lk/web-data/Static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.cmwithmn.lk/web-data/Static/assets/js/libs/tgs-player.js"></script>
+</body>
+</html>

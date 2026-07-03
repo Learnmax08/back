@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class & Lessons Store - Notices</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="description" content="NexusPlatform | Advanced Level Combined Maths Online Learning Platform Developed By Single Developers. Hotline Contact : 0718725619">
+    <link class="manifest" href="https://cdn.cmwithmn.lk/web-data/Static/favicon/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.cmwithmn.lk/web-data/Static/favicon/favicon-32x32.png">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W8DGMMKFPN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W8DGMMKFPN');
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/bootstrap/css/bootstrap.min.css?szsszzz">
+    <link class="styles-link" rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/css/style.css?sdrsselesdctszs">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap">
+    <link class="styles-link" rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/fonts/all.css">
+    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/css/animate.min.css"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="N.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="N.png">
+    
+    <script src="https://analytics.sdev.lk/api/script.js" data-site-id="b3e24a50835e" defer></script>
+    
+    <style>
+    body {
+        background-color: #0b0e14 !important;
+        color: #c9d1d9 !important;
+        margin: 0;
+        overflow-x: hidden;
+        position: relative;
+    }
+    
+    .sider {
+        position: fixed !important;
+        top: 70px !important; 
+        left: 0 !important;
+        width: 90px !important; 
+        height: calc(100vh - 70px) !important;
+        z-index: 1000;
+        background: rgba(13, 17, 23, 0.85) !important;
+        border-right: 1px solid #21262d;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease-in-out; 
+        overflow: hidden !important; 
+    }
+
+    .sider__main_content {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important; 
+        height: 100% !important;
+        padding: 10px 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .sider__btn__container {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.2vh !important; 
+        justify-content: flex-start !important;
+    }
+
+    .sider__main_content .nav__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto !important; 
+        border-radius: 12px;
+        background: #161b22;
+        border: 1px solid #30363d;
+        position: relative;
+        transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                    border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                    box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    
+    .sider__main_content .nav__link i {
+        font-size: 1.25rem;
+        color: #8b949e;
+        transition: color 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .sider__main_content .nav__link .nav__name {
+        display: none; 
+    }
+
+    .sider__main_content .nav__link:hover i,
+    .sider__main_content .nav__link.selected i {
+        transform: scale(1.12);
+    }
+
+    #content-wrapper {
+        margin-left: 90px !important; 
+        transition: margin-left 0.3s ease-in-out !important;
+    }
+
+    .sider__main_content .nav__link.sider__blue:hover,
+    .sider__main_content .nav__link.sider__blue.selected {
+        border-color: #00d2ff !important;
+        box-shadow: 0 0 18px rgba(0, 210, 255, 0.45);
+        background: rgba(0, 210, 255, 0.08) !important;
+    }
+    .sider__main_content .nav__link.sider__blue:hover i,
+    .sider__main_content .nav__link.sider__blue.selected i { 
+        color: #00d2ff !important; 
+        text-shadow: 0 0 10px rgba(0, 210, 255, 0.6);
+    }
+
+    .sider__main_content .nav__link.sider__green:hover,
+    .sider__main_content .nav__link.sider__green.selected {
+        border-color: #00e676 !important;
+        box-shadow: 0 0 18px rgba(0, 230, 118, 0.45);
+        background: rgba(0, 230, 118, 0.08) !important;
+    }
+    .sider__main_content .nav__link.sider__green:hover i,
+    .sider__main_content .nav__link.sider__green.selected i { 
+        color: #00e676 !important; 
+        text-shadow: 0 0 10px rgba(0, 230, 118, 0.6);
+    }
+
+    .sider__main_content .nav__link.sider__orange:hover,
+    .sider__main_content .nav__link.sider__orange.selected {
+        border-color: #ff9100 !important;
+        box-shadow: 0 0 18px rgba(255, 145, 0, 0.45);
+        background: rgba(255, 145, 0, 0.08) !important;
+    }
+    .sider__main_content .nav__link.sider__orange:hover i,
+    .sider__main_content .nav__link.sider__orange.selected i { 
+        color: #ff9100 !important; 
+        text-shadow: 0 0 10px rgba(255, 145, 0, 0.6);
+    }
+
+    .sider__main_content .nav__link.sider__pink:hover,
+    .sider__main_content .nav__link.sider__pink.selected {
+        border-color: #ff007f !important;
+        box-shadow: 0 0 18px rgba(255, 0, 127, 0.45);
+        background: rgba(255, 0, 127, 0.08) !important;
+    }
+    .sider__main_content .nav__link.sider__pink:hover i,
+    .sider__main_content .nav__link.sider__pink.selected i { 
+        color: #ff007f !important; 
+        text-shadow: 0 0 10px rgba(255, 0, 127, 0.6);
+    }
+
+    .sider__main_content .nav__link.sider__purple:hover,
+    .sider__main_content .nav__link.sider__purple.selected {
+        border-color: #b026ff !important;
+        box-shadow: 0 0 18px rgba(176, 38, 255, 0.45);
+        background: rgba(176, 38, 255, 0.08) !important;
+    }
+    .sider__main_content .nav__link.sider__purple:hover i,
+    .sider__main_content .nav__link.sider__purple.selected i { 
+        color: #b026ff !important; 
+        text-shadow: 0 0 10px rgba(176, 38, 255, 0.6);
+    }
+
+    .sider__main_content .nav__link.sider__yellow:hover,
+    .sider__main_content .nav__link.sider__yellow.selected {
+        border-color: #ffd600 !important;
+        box-shadow: 0 0 18px rgba(255, 214, 0, 0.45);
+        background: rgba(255, 214, 0, 0.08) !important;
+    }
+    .sider__main_content .nav__link.sider__yellow:hover i,
+    .sider__main_content .nav__link.sider__yellow.selected i { 
+        color: #ffd600 !important; 
+        text-shadow: 0 0 10px rgba(255, 214, 0, 0.6);
+    }
+
+    .sider__main_content .nav__link.sider__red:hover {
+        border-color: #ff3d00 !important;
+        box-shadow: 0 0 18px rgba(255, 61, 0, 0.45);
+        background: rgba(255, 61, 0, 0.08) !important;
+    }
+    .sider__main_content .nav__link.sider__red:hover i { 
+        color: #ff3d00 !important; 
+        text-shadow: 0 0 10px rgba(255, 61, 0, 0.6);
+    }
+
+    .navbar {
+        background: rgba(13, 17, 23, 0.85) !important;
+        border-bottom: 2px solid #00d2ff !important; 
+        box-shadow: 0 0 15px rgba(0, 210, 255, 0.25) !important;
+        backdrop-filter: blur(10px);
+    }
+    .navbar-brand {
+        color: #ffffff !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.5px;
+    }
+
+    .card.shadow {
+        background: #161b22 !important;
+        border: 1px solid #30363d !important;
+        border-radius: 14px !important;
+        overflow: hidden;
+    }
+    .card-header {
+        background: rgba(22, 27, 34, 0.7) !important;
+        border-bottom: 1px solid #30363d !important;
+    }
+    .btn-primary {
+        background: linear-gradient(135deg, #00d2ff, #0066ff) !important;
+        border: none !important;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+        transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+        box-shadow: 0 4px 20px rgba(0, 210, 255, 0.5);
+        transform: translateY(-1px);
+    }
+
+    @media (max-height: 620px) {
+        .sider__main_content .nav__link {
+            width: 44px !important;
+            height: 44px !important;
+            border-radius: 10px !important;
+        }
+        .sider__main_content .nav__link i {
+            font-size: 1.1rem !important;
+        }
+        .sider__btn__container {
+            gap: 0.8vh !important;
+        }
+    }
+
+    .zoom-container {
+        background: #161b22 !important;
+        border: 1px solid #30363d !important;
+        border-radius: 16px !important;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        padding: 24px;
+        position: relative;
+        z-index: 10;
+    }
+    .zoom-card {
+        background: #0d1117;
+        border: 1px solid #21262d;
+        border-radius: 12px;
+        padding: 20px;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .zoom-card:hover {
+        transform: translateY(-4px);
+        border-color: #00d2ff;
+        box-shadow: 0 0 15px rgba(0, 210, 255, 0.15);
+    }
+    
+    .btn-zoom {
+        background: linear-gradient(135deg, #0070f3, #0066ff);
+        color: #fff !important;
+        font-weight: 700;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .status-badge {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+        border-radius: 20px;
+    }
+    .nav__bootom {
+        margin-top: auto !important;
+        padding-bottom: 10px !important; 
+    }
+
+    #particle-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    
+    /* 💳 Details Button Style */
+    .btn-details {
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background: rgba(0, 210, 255, 0.1) !important;
+    }
+    .btn-details:hover {
+        background: #00d2ff !important;
+        color: #0d1117 !important;
+        box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+    }
+    </style>
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>    
+    
+    <div id="custom-alert-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 10000; font-family: sans-serif;">
+        <div style="background: rgba(116, 58, 143, 0.747); padding: 25px; border-radius: 12px; max-width: 400px; width: 90%; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.2); animation: fadeIn 0.3s ease;">
+            <div style="font-size: 40px; margin-bottom: 15px;" id="alert-icon">⚠️</div>
+            <p id="alert-message" style="font-size: 16px; color: #ffffff; line-height: 1.5; margin-bottom: 20px; font-weight: 500;"></p>
+            <button onclick="closeCustomAlert()" style="background: #03df288f; color: white; border: none; padding: 10px 25px; border-radius: 6px; font-size: 15px; cursor: pointer; font-weight: bold; transition: background 0.2s;">OK</button>
+        </div>
+    </div>
+    
+    <style>
+    @keyframes fadeIn {
+        from { transform: scale(0.9); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+    </style>
+
+    <div class="sidebarbg" id="sidebarbg">
+        <nav class="sider bg-blur" id="sider__menu">
+            <div class="sider__main_content">
+                <div class="sider__btn__container">
+                    <a id="home_nav_btn" class="nav__link sider__blue" href="dashboard.html">
+                        <div><i class="fa-solid fa-gamepad"></i></div>
+                    </a>
+                    <a id="my_class_nav_btn" class="nav__link sider__green" href="class.html">
+                        <div><i class="fa-solid fa-khanda"></i></div>
+                    </a>
+                    <a id="notices_nav_btn" class="nav__link sider__orange selected" href="notices.html">
+                        <div><i class="fa-solid fa-bullhorn"></i></div>
+                    </a>
+                    <a id="marksanalyze_nav_btn" class="nav__link sider__pink" href="marks-analyze.html">
+                        <div><i class="fa-solid fa-trophy"></i></div>
+                    </a>
+                    <a id="store_nav_btn" class="nav__link sider__purple" href="about.html">
+                        <div><i class="fa-solid fa-gem"></i></div>
+                    </a>
+                    <a id="profile_nav_btn" class="nav__link sider__yellow" href="profile.html">
+                        <div><i class="fa-solid fa-user-shield"></i></div>
+                    </a>
+                    <div class="nav__bootom">
+                        <a class="nav__link sider__red" id="nav_logout_btn" style="cursor: pointer;">
+                            <div><i class="fa-solid fa-power-off"></i></div>
+                            <span class="nav__name">Quit Game</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div> 
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-blur shadow">
+        <div class="container-fluid px-4">
+            <div class="d-flex align-items-center">
+                <img src="N.png" width="35px">
+                <a class="navbar-brand ms-2 mb-0 h1 fs-5">NexusPlatform</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+            <div class="container-fluid" style="margin-top: 95px;">   
+                
+                <div class="d-sm-flex justify-content-between align-items-center mb-4" style="position: relative; z-index: 10;">
+                    <table>
+                        <tr>
+                            <td style="border: none;"><h3 class="text-white fw-bold mb-0 ms-1"> Live Lecture Portal</h3></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="row justify-content-center mb-5">
+                    <div class="col-12 col-lg-10 col-xl-9">
+                        <div class="zoom-container">
+                            <div class="d-flex align-items-center justify-content-between border-bottom border-secondary pb-3 mb-4">
+                                <div class="d-flex align-items-center">
+                                    <i class="fa-video fa-solid text-danger me-2 fs-4 animation-blink"></i>
+                                    <div>
+                                        <h5 class="mb-0 text-white fw-bold">සජීවී Zoom පන්ති කාමරය</h5>
+                                        <small class="text-muted">Live පන්තියට සම්බන්ධ වීමට මෙම මාසය සදහා payment කර ලබා ගත් (Password) එක නිවැරදිව ඇතුළත් කරන්න.</small>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span onclick="openPaymentDetailsModal()" class="badge border border-info text-info px-3 py-2 btn-details"><i class="fa-solid fa-credit-card me-1"></i> Details</span>
+                                </div>
+                            </div>
+
+                            <div class="row g-4">
+                                <div class="col-12">
+                                    <div class="zoom-card d-md-flex align-items-center justify-content-between">
+                                        <div class="mb-3 mb-md-0">
+                                            <span class="status-badge bg-success bg-opacity-25 text-success border border-success fw-bold mb-2 d-inline-block"><i class="fa-solid fa-circle-dot me-1"></i> LIVE NOW</span>
+                                            <h5 class="text-white fw-bold mb-1">2027 Combined Maths </h5>
+                                            <p class="text-muted small mb-0"><i class="fa-solid fa-user-tie me-1"></i> Manoj Solangarachchi | <span id="live-class-date">📅 Loading...</span></p>
+                                        </div>
+                                        <div>
+                                            <button onclick="joinAdminProtectedClass()" class="btn btn-zoom w-100">
+                                                <i class="fa-solid fa-key me-2"></i>Unlock & Join
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="custom-password-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); z-index: 9999; align-items: center; justify-content: center;">
+        <div style="background: #161b22; border: 1px solid #30363d; border-radius: 16px; width: 90%; max-width: 450px; padding: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.6); animation: fadeIn 0.3s ease-in-out;">
+            <div style="width: 60px; height: 60px; background: rgba(0, 210, 255, 0.1); border: 1px solid #00d2ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                <i class="fa-solid fa-lock" style="color: #00d2ff; font-size: 1.5rem;"></i>
+            </div>
+            <h5 style="color: #ffffff; font-weight: 700; margin-bottom: 10px;">සජීවී පන්තියට ඇතුළු වන්න</h5>
+            <p style="color: #8b949e; font-size: 0.9rem; margin-bottom: 20px;">මෙම සජීවී පන්තියට සම්බන්ධ වීමට ඔබට ලබා දී ඇති රහස් පදය (Password) ඇතුළත් කරන්න:</p>
+            
+            <input type="password" id="modal-password-input" placeholder="රහස් පදය මෙතන ලියන්න..." style="width: 100%; padding: 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 8px; color: #ffffff; text-align: center; font-size: 1.1rem; outline: none; transition: border-color 0.3s" onfocus="this.style.borderColor='#00d2ff'" onblur="this.style.borderColor='#30363d'">
+            
+            <div style="display: flex; gap: 10px; margin-top: 25px;">
+                <button onclick="closePasswordModal()" style="flex: 1; padding: 10px; background: #21262d; border: 1px solid #30363d; color: #c9d1d9; border-radius: 8px; font-weight: 600; cursor: pointer;">Cancel</button>
+                <button onclick="submitPasswordModal()" style="flex: 1; padding: 10px; background: linear-gradient(135deg, #0070f3, #0066ff); border: none; color: #ffffff; border-radius: 8px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 112, 243, 0.3);">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="custom-payment-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 9999; align-items: center; justify-content: center;">
+        <div style="background: #161b22; border: 1px solid #30363d; border-radius: 16px; width: 95%; max-width: 500px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.7); animation: fadeIn 0.3s ease-in-out;">
+            <div style="width: 60px; height: 60px; background: rgba(0, 230, 118, 0.1); border: 1px solid #00e676; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                <i class="fa-solid fa-building-columns" style="color: #00e676; font-size: 1.5rem;"></i>
+            </div>
+            <h5 style="color: #ffffff; font-weight: 700; text-align: center; margin-bottom: 20px;">💳 පන්ති ගාස්තු ගෙවීමේ විස්තර</h5>
+            
+            <div style="background: #0d1117; border: 1px solid #21262d; border-radius: 10px; padding: 15px; text-align: left; margin-bottom: 20px;">
+                <h3><strong>Monthly Payment: Rs.300</strong></h3>
+                <h5><strong>Cash Name: eZ Cash</strong></h5>
+                <h5><strong>Account Number: 074#######</strong></h5>
+               
+                <hr style="border-top: 1px solid #30363d; margin: 15px 0;">
+                
+                <div style="text-align: center; margin-bottom: 10px;">
+                    <p style="color: #c9d1d9; font-size: 0.85rem; margin-bottom: 8px;">මුදල් ගෙවූ පසු රිසිට්පත (Slip) ඇඩ්මින්ට ඉදිරිපත් කරන්න:</p>
+                    <a href="https://t.me/Nexusbook_live_bot" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px; background: #0d2917; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 0.95rem; transition: background 0.2s; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);" onmouseover="this.style.background='#20ba5a'" onmouseout="this.style.background='#25d366'">
+                        <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Send Payment Slip
+                    </a>
+                </div>
+    
+                <hr style="border-top: 1px solid #30363d; margin: 15px 0;">
+                <p style="margin-bottom: 0; color: #ffd600; font-size: 0.85rem;"><i class="fa-solid fa-circle-dot me-1"></i> මුදල් ගෙවා ලබා ගන්නා රහස් පදය (Password) කාටවත් ලබා නොදෙන්න.</p>
+            </div>
+            
+            <div style="text-align: center;">
+                <button onclick="closePaymentModal()" style="width: 100%; max-width: 150px; padding: 10px; background: linear-gradient(135deg, #ff3d00, #ff1744); border: none; color: #ffffff; border-radius: 8px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 23, 68, 0.3);">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.cmwithmn.lk/web-data/Static/assets/bootstrap/js/bootstrap.min.js"></script>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-database.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
+
+        // ඔයා දීපු නිවැරදි Firebase Config එක
+        const firebaseConfig = {
+            apiKey: "AIzaSyBNVWTQLCDd1cOOU-cOdepjXPuCwH2__dw",
+            authDomain: "nexus-db7a5.firebaseapp.com",
+            databaseURL: "https://nexus-db7a5-default-rtdb.firebaseio.com",
+            projectId: "nexus-db7a5",
+            storageBucket: "nexus-db7a5.firebasestorage.app",
+            messagingSenderId: "599095336957",
+            appId: "1:599095336957:web:aed6923cea8bb43d068394",
+            measurementId: "G-BJ3841BWNC"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase(app);
+
+        // 'liveClass' කියන තැනට රික්වෙස්ට් එකක් සකස් කිරීම
+        const classRef = ref(db, 'liveClass');
+
+        // Cloudflare එකේ උනත් Live දත්ත වෙනස් වීම් ක්ෂණිකව අල්ලා ගැනීම
+        onValue(classRef, (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                // 📅 දිනය Screen එකට ලයිව් අප්ඩේට් කිරීම
+                if (data.date) {
+                    document.getElementById('live-class-date').innerText = "📅 " + data.date;
+                }
+                // Global Variables වලට ලින්ක් සහ පාස්වර්ඩ් සේව් කිරීම
+                window.nexusLiveLink = data.link;      
+                window.nexusLivePass = data.password;  
+            }
+        });
+    </script>
+
+    <script>
+    function showCustomAlert(message, icon = '⚠️') {
+        document.getElementById('alert-message').innerText = message;
+        document.getElementById('alert-icon').innerText = icon;
+        document.getElementById('custom-alert-modal').style.display = 'flex';
+    }
+
+    function closeCustomAlert() {
+        document.getElementById('custom-alert-modal').style.display = 'none';
+    }
+
+    function joinAdminProtectedClass() {
+        const savedLink = window.nexusLiveLink;
+        const savedPassword = window.nexusLivePass;
+
+        if (!savedLink || !savedPassword) {
+            showCustomAlert("පන්තිය තවමත් සක්‍රීය කර නොමැත! කරුණාකර සුළු මොහොතකින් නැවත උත්සාහ කරන්න.", "⏳");
+            return;
+        }
+
+        const modal = document.getElementById('custom-password-modal');
+        const input = document.getElementById('modal-password-input');
+        input.value = ''; 
+        modal.style.display = 'flex';
+        input.focus();
+    }
+
+    function closePasswordModal() {
+        document.getElementById('custom-password-modal').style.display = 'none';
+    }
+
+    function submitPasswordModal() {
+        const userPassword = document.getElementById('modal-password-input').value;
+        const savedLink = window.nexusLiveLink;
+        const savedPassword = window.nexusLivePass;
+        
+        if (userPassword.trim() === savedPassword.trim()) {
+            closePasswordModal();
+            window.open(savedLink, '_blank'); 
+        } else {
+            showCustomAlert("වැරදි රහස් පදයක්! කරුණාකර නිවැරදි පදය ඇතුළත් කරන්න.", "❌");
+        }
+    }
+
+    document.getElementById('modal-password-input')?.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            submitPasswordModal();
+        }
+    });
+
+    function openPaymentDetailsModal() {
+        document.getElementById('custom-payment-modal').style.display = 'flex';
+    }
+
+    function closePaymentModal() {
+        document.getElementById('custom-payment-modal').style.display = 'none';
+    }
+
+    // 🛡️ Security Restrictions (Right-Click Block)
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // 🛡️ Keyboard Shortcuts Block
+    document.addEventListener('keydown', function (e) {
+        if (e.key === "F12") {
+            e.preventDefault();
+            return false;
+        }
+        if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 'c' || e.key === 'C'))) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    // 🌌 Particle Canvas Effect
+    const canvas = document.getElementById('particle-canvas'); const ctx = canvas.getContext('2d');
+    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; } resizeCanvas();
+    window.addEventListener('resize', resizeCanvas); const particlesArray = [];
+    class Particle {
+        constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.size = Math.random() * 2 + 1; this.speedX = Math.random() * 0.3 - 0.15; this.speedY = Math.random() * 0.3 - 0.15; }
+        update() { this.x += this.speedX; this.y += this.speedY; if (this.x > canvas.width || this.x < 0) this.speedX *= -1; if (this.y > canvas.height || this.y < 0) this.speedY *= -1; }
+        draw() { ctx.fillStyle = 'rgba(0, 210, 255, 0.4)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
+    }
+    for (let i = 0; i < 40; i++) { particlesArray.push(new Particle()); }
+    function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); for (let i = 0; i < particlesArray.length; i++) { particlesArray[i].update(); particlesArray[i].draw(); } requestAnimationFrame(animate); } animate();
+
+    // 🚪 Logout Handler
+    const handleLogout = () => {
+        if(typeof Swal !== 'undefined') {
+            Swal.fire({
+                title: 'Quit Game?',
+                text: "ඔබට පද්ධතියෙන් ඉවත් වීමට අවශ්‍යද?",
+                icon: 'warning',
+                showCancelButton: true,
+                background: '#161b22',
+                color: '#ffffff',
+                confirmButtonColor: '#ff3d00',
+                cancelButtonColor: '#30363d',
+                confirmButtonText: 'Yes, Exit!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    localStorage.clear();
+                    window.location.href = 'index.html';
+                }
+            });
+        } else {
+            if(confirm("ඔබට පද්ධතියෙන් ඉවත් වීමට අවශ්‍යද?")) {
+                localStorage.clear();
+                window.location.href = 'index.html';
+            }
+        }
+    };
+    document.getElementById('nav_logout_btn').addEventListener('click', handleLogout);
+    </script>
+</body>
+</html>
