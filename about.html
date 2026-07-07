@@ -1,30 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Classes</title>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W8DGMMKFPN"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-W8DGMMKFPN');
-    </script>
-
-    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/bootstrap/css/bootstrap.min.css?szsszzz">
-    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/css/style.css?sdrsselesdctszs">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
-    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/fonts/all.css">
-    <link rel="stylesheet" href="https://cdn.cmwithmn.lk/web-data/Static/assets/css/animate.min.css"/>
-    <link rel="icon" type="image/png" sizes="32x32" href="N.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="N.png">
-    
-    <script src="https://analytics.sdev.lk/api/script.js" data-site-id="b3e24a50835e" defer></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
+<style>
     body {
         background-color: #0b0e14 !important;
         color: #c9d1d9 !important;
@@ -96,45 +72,7 @@
     .sider__main_content .nav__link.selected i {
         transform: scale(1.12);
     }
-/* පොදු Badge ਸਟਾਈල් */
-.badge-custom {
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    padding: 5px 10px;
-    border-radius: 6px;
-    text-transform: uppercase;
-    display: inline-block;
-    margin-left: 8px;
-    vertical-align: middle;
-}
 
-/* FREE බැජ් එක සඳහා - කොළ පැහැති Glow එකක් */
-.badge-free {
-    background-color: #00e676;
-    color: #000000;
-    box-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
-    border: 1px solid #00ff81;
-}
-
-/* PAID බැජ් එක සඳහා - තැඹිලි/රන්වන් පැහැති Glow එකක් */
-.badge-paid {
-    background-color: #ee067a;
-    color: #000000;
-    box-shadow: 0 0 12px rgba(172, 5, 116, 0.6);
-    border: 1px solid #ffaa33;
-    animation: pulseGlow 2s infinite alternative; /* සියුම්ව බැබළීමට */
-}
-
-/* Paid එක තවත් කැපී පෙනෙන්න පොඩි ඇනිමේෂන් එකක් */
-@keyframes pulseGlow {
-    0% {
-        box-shadow: 0 0 8px rgba(255, 145, 0, 0.5);
-    }
-    100% {
-        box-shadow: 0 0 18px rgba(255, 145, 0, 0.9);
-    }
-}
     /* --- 👑 Content Wrapper --- */
     #content-wrapper, 
     .mb-5:not(.card), 
@@ -143,7 +81,7 @@
     main,
     .main-content {
         margin-left: 110px !important; 
-        padding-left: 15px !important;  
+        padding-left: 15px !important;   
         padding-right: 15px !important;
         transition: margin-left 0.3s ease-in-out !important;
         box-sizing: border-box !important;
@@ -153,48 +91,68 @@
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
-/* FREE Badge එක Highlight කිරීමට */
-.badge.bg-success {
-    background: linear-gradient(135deg, #28a745, #1e7e34) !important;
-    color: #ffffff !important;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 5px 10px !important;
-    border-radius: 6px !important;
-    box-shadow: 0 0 8px rgba(40, 167, 69, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-}
 
-/* PAID Badge එක Highlight කිරීමට */
-.badge.bg-danger {
-    background: linear-gradient(135deg, #d31629ea, #bd2130) !important;
-    color: #c21e1e !important;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 5px 10px !important;
-    border-radius: 6px !important;
-    box-shadow: 0 0 8px rgba(233, 7, 30, 0.4);
-    border: 1px solid rgba(179, 17, 17, 0.2) !important;
-}
+    /* ==========================================================================
+       🌟 UPDATED: FREE & PAID LABELS (LOCKED IN & LARGER)
+       ========================================================================== */
 
-/* PENDING/ACTIVE වගේ වෙනත් තත්ත්වයන් සඳහා (අවශ්‍ය නම්) */
-.badge.bg-warning {
-    background: linear-gradient(135deg, #ffc107, #d39e00) !important;
-    font-weight: bold;
-    padding: 5px 10px !important;
-    border-radius: 6px !important;
-    box-shadow: 0 0 8px rgba(211, 159, 4, 0.4);
-}
+    /* FREE Badge එක Highlight කිරීමට (ටිකක් ලොකු කර ඇත) */
+    .badge.bg-success {
+        background: linear-gradient(135deg, #00e676, #00b359) !important;
+        color: #000000 !important;
+        font-size: 0.85rem !important; /* ප්‍රමාණය වැඩි කළා */
+        font-weight: 800 !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 6px 14px !important; /* Padding වැඩි කළා */
+        border-radius: 6px !important;
+        box-shadow: 0 0 12px rgba(0, 230, 118, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        vertical-align: middle;
+    }
 
-.badge.bg-info {
-    background: linear-gradient(135deg, #17a2b8, #117a8b) !important;
-    font-weight: bold;
-    padding: 5px 10px !important;
-    border-radius: 6px !important;
-    box-shadow: 0 0 8px rgba(10, 185, 212, 0.87);
-}
+    /* PAID Badge එක Highlight කිරීමට (ටිකක් ලොකු කර ඇත) */
+    .badge.bg-danger {
+        background: linear-gradient(135deg, #ff0055, #d30043) !important;
+        color: #ffffff !important;
+        font-size: 0.85rem !important; /* ප්‍රමාණය වැඩි කළා */
+        font-weight: 800 !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 6px 14px !important; /* Padding වැඩි කළා */
+        border-radius: 6px !important;
+        box-shadow: 0 0 12px rgba(255, 0, 85, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        vertical-align: middle;
+        animation: pulseGlow 2s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+        0% { box-shadow: 0 0 8px rgba(255, 0, 85, 0.4); }
+        100% { box-shadow: 0 0 18px rgba(255, 0, 85, 0.8); }
+    }
+
+    /* PENDING & ACTIVE Status Badges (Realtime Loading සදහා) */
+    .badge.bg-warning {
+        background: linear-gradient(135deg, #ffc107, #d39e00) !important;
+        color: #000000 !important;
+        font-size: 0.85rem !important;
+        font-weight: 800 !important;
+        padding: 6px 14px !important;
+        border-radius: 6px !important;
+        box-shadow: 0 0 12px rgba(211, 159, 4, 0.5);
+    }
+
+    .badge.bg-info {
+        background: linear-gradient(135deg, #00d2ff, #0099cc) !important;
+        color: #000000 !important;
+        font-size: 0.85rem !important;
+        font-weight: 800 !important;
+        padding: 6px 14px !important;
+        border-radius: 6px !important;
+        box-shadow: 0 0 12px rgba(0, 210, 255, 0.6);
+    }
+
     /* --- Individual Gaming RGB Glow Effects for Sidebar Buttons --- */
     .nav__link__wrapper:hover .nav__link.sider__blue,
     .nav__link__wrapper.selected .nav__link.sider__blue {
@@ -207,89 +165,66 @@
         color: #00d2ff !important; 
         text-shadow: 0 0 10px rgba(0, 210, 255, 0.6);
     }
-    .nav__link__wrapper:has(.sider__blue):hover::before,
-    .nav__link__wrapper.selected:has(.sider__blue)::before { background-color: #00d2ff; }
 
-    .nav__link__wrapper:hover .nav__link.sider__green,
-    .nav__link__wrapper.selected .nav__link.sider__green {
-        border-color: #00e676 !important;
-        box-shadow: 0 0 18px rgba(0, 230, 118, 0.45);
-        background: rgba(0, 230, 118, 0.08) !important;
-    }
-    .nav__link__wrapper:hover .nav__link.sider__green i,
-    .nav__link__wrapper.selected .nav__link.sider__green i { 
-        color: #00e676 !important; 
-        text-shadow: 0 0 10px rgba(0, 230, 118, 0.6);
-    }
-    .nav__link__wrapper:has(.sider__green):hover::before,
-    .nav__link__wrapper.selected:has(.sider__green)::before { background-color: #00e676; }
+    /* ==========================================================================
+       🎮 UPDATED: GAMING DJ PINK COURSE CARDS STYLING
+       ========================================================================= */
 
-    .nav__link__wrapper:hover .nav__link.sider__orange,
-    .nav__link__wrapper.selected .nav__link.sider__orange {
-        border-color: #ff9100 !important;
-        box-shadow: 0 0 18px rgba(255, 145, 0, 0.45);
-        background: rgba(255, 145, 0, 0.08) !important;
+    .gaming-zone-title {
+        color: #ff007f !important; /* Title එකත් DJ Pink කළා */
+        text-shadow: 0 0 10px rgba(255, 0, 127, 0.4);
+        border-left: 4px solid #ff007f;
+        padding-left: 12px;
+        font-family: 'Nunito', sans-serif;
+        letter-spacing: 0.5px;
     }
-    .nav__link__wrapper:hover .nav__link.sider__orange i,
-    .nav__link__wrapper.selected .nav__link.sider__orange i { 
-        color: #ff9100 !important; 
-        text-shadow: 0 0 10px rgba(255, 145, 0, 0.6);
-    }
-    .nav__link__wrapper:has(.sider__orange):hover::before,
-    .nav__link__wrapper.selected:has(.sider__orange)::before { background-color: #ff9100; }
 
-    .nav__link__wrapper:hover .nav__link.sider__pink,
-    .nav__link__wrapper.selected .nav__link.sider__pink {
+    .mb-5 .card, .mb-4 .card {
+        background: rgba(22, 27, 34, 0.75) !important;
+        border: 1px solid #30363d !important;
+        border-radius: 16px !important;
+        backdrop-filter: blur(8px);
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        overflow: hidden;
+    }
+
+    /* Cards වලට hover කරද්දී DJ Pink Color Glow එක */
+    .mb-5 .col:hover .card, 
+    .mb-4 .col:hover .card {
         border-color: #ff007f !important;
-        box-shadow: 0 0 18px rgba(255, 0, 127, 0.45);
-        background: rgba(255, 0, 127, 0.08) !important;
+        box-shadow: 0 0 25px rgba(255, 0, 127, 0.35) !important;
+        transform: translateY(-5px);
     }
-    .nav__link__wrapper:hover .nav__link.sider__pink i,
-    .nav__link__wrapper.selected .nav__link.sider__pink i { 
-        color: #ff007f !important; 
-        text-shadow: 0 0 10px rgba(255, 0, 127, 0.6);
-    }
-    .nav__link__wrapper:has(.sider__pink):hover::before,
-    .nav__link__wrapper.selected:has(.sider__pink)::before { background-color: #ff007f; }
 
-    .nav__link__wrapper:hover .nav__link.sider__purple,
-    .nav__link__wrapper.selected .nav__link.sider__purple {
-        border-color: #b026ff !important;
-        box-shadow: 0 0 18px rgba(176, 38, 255, 0.45);
-        background: rgba(176, 38, 255, 0.08) !important;
+    .card .position-relative img {
+        transition: transform 0.5s ease;
     }
-    .nav__link__wrapper:hover .nav__link.sider__purple i,
-    .nav__link__wrapper.selected .nav__link.sider__purple i { 
-        color: #b026ff !important; 
-        text-shadow: 0 0 10px rgba(176, 38, 255, 0.6);
+    .col:hover .card .position-relative img {
+        transform: scale(1.04);
+        opacity: 1 !important;
     }
-    .nav__link__wrapper:has(.sider__purple):hover::before,
-    .nav__link__wrapper.selected:has(.sider__purple)::before { background-color: #b026ff; }
 
-    .nav__link__wrapper:hover .nav__link.sider__yellow,
-    .nav__link__wrapper.selected .nav__link.sider__yellow {
-        border-color: #ffd600 !important;
-        box-shadow: 0 0 18px rgba(255, 214, 0, 0.45);
-        background: rgba(255, 214, 0, 0.08) !important;
+    .btn-playlist {
+        background: #161b22 !important;
+        color: #8b949e !important;
+        border: 1px solid #30363d !important;
+        font-weight: 700 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.85rem !important;
+        transition: all 0.3s ease-in-out !important;
     }
-    .nav__link__wrapper:hover .nav__link.sider__yellow i,
-    .nav__link__wrapper.selected .nav__link.sider__yellow i { 
-        color: #ffd600 !important; 
-        text-shadow: 0 0 10px rgba(255, 214, 0, 0.6);
-    }
-    .nav__link__wrapper:has(.sider__yellow):hover::before,
-    .nav__link__wrapper.selected:has(.sider__yellow)::before { background-color: #ffd600; }
 
-    .nav__link__wrapper:hover .nav__link.sider__red {
-        border-color: #ff3d00 !important;
-        box-shadow: 0 0 18px rgba(255, 61, 0, 0.45);
-        background: rgba(255, 61, 0, 0.08) !important;
+    /* Button එක hover කරද්දී DJ Pink Color එක */
+    .mb-5 .col:hover .btn-playlist,
+    .mb-4 .col:hover .btn-playlist {
+        background: #ff007f !important;
+        color: #ffffff !important;
+        border-color: #ff007f !important;
+        box-shadow: 0 0 15px rgba(255, 0, 127, 0.6);
     }
-    .nav__link__wrapper:hover .nav__link.sider__red i { 
-        color: #ff3d00 !important; 
-        text-shadow: 0 0 10px rgba(255, 61, 0, 0.6);
-    }
-    .nav__link__wrapper:has(.sider__red):hover::before { background-color: #ff3d00; }
+
+    /* -------------------------------------------------------------------------- */
 
     .navbar {
         background: rgba(13, 17, 23, 0.85) !important;
@@ -305,44 +240,12 @@
         letter-spacing: 0.5px;
     }
 
-    .card.shadow {
-        background: #161b22 !important;
-        border: 1px solid #30363d !important;
-        border-radius: 14px !important;
-        overflow: hidden;
-    }
-    .card-header {
-        background: rgba(22, 27, 34, 0.7) !important;
-        border-bottom: 1px solid #30363d !important;
-    }
-    
-    .text-dark { color: #ffffff !important; }
-    .text-primary { color: #00d2ff !important; }
-
     .form-control {
         background-color: #0d1117 !important;
         border: 1px solid #30363d !important;
         color: #ffffff !important;
         border-radius: 8px;
     }
-    .btn-light {
-        background-color: #21262d !important;
-        border: 1px solid #30363d !important;
-        color: #c9d1d9 !important;
-    }
-    .btn-light:hover {
-        background-color: #30363d !important;
-        color: #ffffff !important;
-    }
-
-    .modal-content {
-        background-color: #161b22 !important;
-        border: 1px solid #00e676 !important;
-        box-shadow: 0 0 25px rgba(0, 230, 118, 0.2);
-        color: #ffffff;
-    }
-    .modal-header { border-bottom: 1px solid #30363d; }
-    .modal-footer { border-top: 1px solid #30363d; }
 
     @media (max-height: 620px) {
         .sider__main_content .nav__link {
@@ -356,96 +259,6 @@
         .sider__btn__container {
             gap: 0.8vh !important;
         }
-    }
-
-    /* ==========================================================================
-       🎮 GAMING RGB COURSE CARDS STYLING (CSS ONLY)
-       ========================================================================== */
-
-    .gaming-zone-title {
-        color: #00d2ff !important;
-        text-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
-        border-left: 4px solid #00d2ff;
-        padding-left: 12px;
-        font-family: 'Nunito', sans-serif;
-        letter-spacing: 0.5px;
-    }
-
-    h4 i.fa-crosshairs, 
-    h4:has(.fa-crosshairs) {
-        color: #ff9100 !important;
-        text-shadow: 0 0 10px rgba(255, 145, 0, 0.4) !important;
-    }
-    h4:has(.fa-crosshairs) {
-        border-left-color: #ff9100 !important;
-    }
-
-    .mb-5 .card, .mb-4 .card {
-        background: rgba(22, 27, 34, 0.75) !important;
-        border: 1px solid #30363d !important;
-        border-radius: 16px !important;
-        backdrop-filter: blur(8px);
-        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
-        overflow: hidden;
-    }
-
-    .mb-5 .col:hover .card {
-        border-color: #00d2ff !important;
-        box-shadow: 0 0 25px rgba(0, 210, 255, 0.25) !important;
-        transform: translateY(-5px);
-    }
-
-    .mb-4 .col:hover .card {
-        border-color: #ff9100 !important;
-        box-shadow: 0 0 25px rgba(255, 145, 0, 0.25) !important;
-        transform: translateY(-5px);
-    }
-
-    .card .position-relative img {
-        transition: transform 0.5s ease;
-    }
-    .col:hover .card .position-relative img {
-        transform: scale(1.04);
-        opacity: 1 !important;
-    }
-
-    .card .badge {
-        background: rgba(13, 17, 23, 0.85) !important;
-        border-radius: 6px !important;
-        font-weight: 600;
-    }
-    .mb-5 .col:hover .card .badge {
-        border-color: #00d2ff !important;
-        color: #00d2ff !important;
-    }
-    .mb-4 .col:hover .card .badge {
-        border-color: #ff9100 !important;
-        color: #ff9100 !important;
-    }
-
-    .btn-playlist {
-        background: #161b22 !important;
-        color: #8b949e !important;
-        border: 1px solid #30363d !important;
-        font-weight: 700 !important;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        font-size: 0.85rem !important;
-        transition: all 0.3s ease-in-out !important;
-    }
-
-    .mb-5 .col:hover .btn-playlist {
-        background: #00d2ff !important;
-        color: #0d1117 !important;
-        border-color: #00d2ff !important;
-        box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
-    }
-
-    .mb-4 .col:hover .btn-playlist {
-        background: #ff9100 !important;
-        color: #0d1117 !important;
-        border-color: #ff9100 !important;
-        box-shadow: 0 0 15px rgba(255, 145, 0, 0.5);
     }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
