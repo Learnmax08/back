@@ -786,26 +786,30 @@
                 </div>
             </div>
 
+           
+
             <div class="col">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="images/pic-6.jpg" alt="Tutor" class="rounded-circle me-3 border border-secondary" width="40" height="40">
-                            <div>
-                                <h6 class="mb-0 fw-bold text-white small">Manoj Solangarachchi</h6>
-                                <small class="text-muted" style="font-size: 0.75rem;">📅 21-01-2026</small>
-                            </div>
-                        </div>
-                        <div class="position-relative mb-3 rounded-3 overflow-hidden bg-dark">
-                            <img src="images/thumb-7.png" alt="Thumbnail" class="img-fluid w-100 object-fit-cover" style="height: 170px; opacity: 0.85;">
-                            <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">7 videos</span>
-                        </div>
-                        <h5 class="card-title fw-bold text-white mb-3 fs-6" style="min-height: 40px;">දෛශික <span class="badge bg-success ms-2" style="font-size: 0.7rem;">FREE</span></h5>
-                        <button onclick="enrollClass('දෛශික', 'images/thumb-1.png', '9 videos', 'playlist -7.html')" class="btn btn-playlist btn-sm w-100 rounded-3 py-2">Enroll Quest</button>
-                    </div>
+    <div class="card h-100 shadow-sm">
+        <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+                <img src="images/pic-6.jpg" alt="Tutor" class="rounded-circle me-3 border border-secondary" width="40" height="40">
+                <div>
+                    <h6 class="mb-0 fw-bold text-white small">Manoj Solangarachchi</h6>
+                    <small class="text-muted" style="font-size: 0.75rem;">📅 21-01-2026</small>
                 </div>
             </div>
-
+            <div class="position-relative mb-3 rounded-3 overflow-hidden bg-dark">
+                <img src="images/thumb-7.png" alt="Thumbnail" class="img-fluid w-100 object-fit-cover" style="height: 170px; opacity: 0.85;">
+                <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">7 videos</span>
+            </div>
+            <h5 class="card-title fw-bold text-white mb-3 fs-6" style="min-height: 40px;">දෛශික <span id="badge-දෛශික" class="badge bg-danger ms-2" style="font-size: 0.7rem;">PAID</span></h5>
+            
+            <div id="btn-container-දෛශික">
+                <button id="btn-දෛශික" onclick="requestUnlock('දෛශික')" class="btn btn-playlist btn-sm w-100 rounded-3 py-2">Enroll Quest</button>
+            </div>
+        </div>
+    </div>
+</div>
         </div>
     </div>
 
@@ -871,7 +875,7 @@
         listenToCourseStatus('සීමාව', 'playlist -2.html', 'images/thumb-3.png', '4 videos');
          listenToCourseStatus('අවකලනය', 'playlist -3.html', 'images/thumb-3.png', '6 videos');
          listenToCourseStatus('sheni', 'playlist -12.html', 'images/thumb-3.png', '1 videos');
-
+        listenToCourseStatus('දෛශික', 'playlist -7.html', 'images/thumb-3.png', '7 videos');
          function enrollClass(className, thumbImg, videoCount, playlistUrl) {
     // 👑 ඉංග්‍රීසි නම සිංහල නම බවට හරවන කොටස (Alert එකේ පෙන්වන්න විතරක්)
     let displayTitle = className;
@@ -882,6 +886,9 @@
     } else if (className === 'අවකලනය') {
         displayTitle = 'අවකලනය';
     }
+    } else if (className === 'දෛශික') {
+        displayTitle = 'දෛශික';
+    }         
 
     let enrolledClasses = JSON.parse(localStorage.getItem('enrolledClasses')) || [];
     const isAlreadyEnrolled = enrolledClasses.some(item => item.name === className);
@@ -924,7 +931,7 @@
     if (className === 'sheni') displayTitle = 'ශ්‍රේණි';
     if (className === 'සීමාව') displayTitle = 'සීමාව';
     if (className === 'අවකලනය') displayTitle = 'අවකලනය';
-
+    if (className === 'දෛශික') displayTitle = 'දෛශික';
     Swal.fire({
         title: `Course Fee: Rs. 200`,
         html: `
