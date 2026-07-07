@@ -362,85 +362,91 @@
        🎮 GAMING RGB COURSE CARDS STYLING (CSS ONLY)
        ========================================================================== */
 
-/* ==========================================================================
-   🎮 GAMING RGB COURSE CARDS STYLING (Neon DJ Pink Edition)
-   ========================================================================== */
+    .gaming-zone-title {
+        color: #00d2ff !important;
+        text-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+        border-left: 4px solid #00d2ff;
+        padding-left: 12px;
+        font-family: 'Nunito', sans-serif;
+        letter-spacing: 0.5px;
+    }
 
-.gaming-zone-title {
-    color: #ff007f !important; /* මාතෘකාව Neon Pink කළා */
-    text-shadow: 0 0 10px rgba(255, 0, 127, 0.4);
-    border-left: 4px solid #ff007f;
-    padding-left: 12px;
-    font-family: 'Nunito', sans-serif;
-    letter-spacing: 0.5px;
-}
+    h4 i.fa-crosshairs, 
+    h4:has(.fa-crosshairs) {
+        color: #ff9100 !important;
+        text-shadow: 0 0 10px rgba(255, 145, 0, 0.4) !important;
+    }
+    h4:has(.fa-crosshairs) {
+        border-left-color: #ff9100 !important;
+    }
 
-h4 i.fa-crosshairs, 
-h4:has(.fa-crosshairs) {
-    color: #ff007f !important; /* Applied Maths මාතෘකාවත් Neon Pink කළා */
-    text-shadow: 0 0 10px rgba(255, 0, 127, 0.4) !important;
-}
-h4:has(.fa-crosshairs) {
-    border-left-color: #ff007f !important;
-}
+    .mb-5 .card, .mb-4 .card {
+        background: rgba(22, 27, 34, 0.75) !important;
+        border: 1px solid #30363d !important;
+        border-radius: 16px !important;
+        backdrop-filter: blur(8px);
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        overflow: hidden;
+    }
 
-.mb-5 .card, .mb-4 .card {
-    background: rgba(22, 27, 34, 0.75) !important;
-    border: 1px solid #30363d !important;
-    border-radius: 16px !important;
-    backdrop-filter: blur(8px);
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
-    overflow: hidden;
-}
+    .mb-5 .col:hover .card {
+        border-color: #00d2ff !important;
+        box-shadow: 0 0 25px rgba(0, 210, 255, 0.25) !important;
+        transform: translateY(-5px);
+    }
 
-/* Card එක උඩට Mouse එක ගෙනිච්චම ලැබෙන Neon Pink Glow එක */
-.mb-5 .col:hover .card,
-.mb-4 .col:hover .card {
-    border-color: #ff007f !important;
-    box-shadow: 0 0 25px rgba(255, 0, 127, 0.35) !important;
-    transform: translateY(-5px);
-}
+    .mb-4 .col:hover .card {
+        border-color: #ff9100 !important;
+        box-shadow: 0 0 25px rgba(255, 145, 0, 0.25) !important;
+        transform: translateY(-5px);
+    }
 
-.card .position-relative img {
-    transition: transform 0.5s ease;
-}
-.col:hover .card .position-relative img {
-    transform: scale(1.04);
-    opacity: 1 !important;
-}
+    .card .position-relative img {
+        transition: transform 0.5s ease;
+    }
+    .col:hover .card .position-relative img {
+        transform: scale(1.04);
+        opacity: 1 !important;
+    }
 
-.card .badge {
-    background: rgba(13, 17, 23, 0.85) !important;
-    border-radius: 6px !important;
-    font-weight: 600;
-}
+    .card .badge {
+        background: rgba(13, 17, 23, 0.85) !important;
+        border-radius: 6px !important;
+        font-weight: 600;
+    }
+    .mb-5 .col:hover .card .badge {
+        border-color: #00d2ff !important;
+        color: #00d2ff !important;
+    }
+    .mb-4 .col:hover .card .badge {
+        border-color: #ff9100 !important;
+        color: #ff9100 !important;
+    }
 
-/* Badge එක hover එකේදී Neon Pink වෙන්න */
-.mb-5 .col:hover .card .badge,
-.mb-4 .col:hover .card .badge {
-    border-color: #ff007f !important;
-    color: #ff007f !important;
-}
+    .btn-playlist {
+        background: #161b22 !important;
+        color: #8b949e !important;
+        border: 1px solid #30363d !important;
+        font-weight: 700 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.85rem !important;
+        transition: all 0.3s ease-in-out !important;
+    }
 
-.btn-playlist {
-    background: #161b22 !important;
-    color: #8b949e !important;
-    border: 1px solid #30363d !important;
-    font-weight: 700 !important;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-size: 0.85rem !important;
-    transition: all 0.3s ease-in-out !important;
-}
+    .mb-5 .col:hover .btn-playlist {
+        background: #00d2ff !important;
+        color: #0d1117 !important;
+        border-color: #00d2ff !important;
+        box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+    }
 
-/* බොත්තම (Button) උඩට Mouse එක ගෙනිච්චම ලැබෙන Neon Pink Glow එක */
-.mb-5 .col:hover .btn-playlist,
-.mb-4 .col:hover .btn-playlist {
-    background: #ff007f !important;
-    color: #ffffff !important;
-    border-color: #ff007f !important;
-    box-shadow: 0 0 15px rgba(255, 0, 127, 0.6);
-}
+    .mb-4 .col:hover .btn-playlist {
+        background: #ff9100 !important;
+        color: #0d1117 !important;
+        border-color: #ff9100 !important;
+        box-shadow: 0 0 15px rgba(255, 145, 0, 0.5);
+    }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -537,7 +543,7 @@ h4:has(.fa-crosshairs) {
                     </div>
                     <div class="position-relative mb-3 rounded-3 overflow-hidden bg-dark">
                         <img src="images/thumb-4.png" alt="Thumbnail" class="img-fluid w-100 object-fit-cover" style="height: 170px; opacity: 0.85;">
-                        <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">1 videos</span>
+                        <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">7 videos</span>
                     </div>
                     <h5 class="card-title fw-bold text-white mb-3 fs-6" style="min-height: 40px;"> ශ්‍රේණි <span id="badge-sheni" class="badge bg-danger ms-2" style="font-size: 0.7rem;">PAID</span></h5>
                     <div id="btn-container-sheni">
@@ -581,7 +587,7 @@ h4:has(.fa-crosshairs) {
                     </div>
                     <div class="position-relative mb-3 rounded-3 overflow-hidden bg-dark">
                         <img src="images/thumb-4.png" alt="Thumbnail" class="img-fluid w-100 object-fit-cover" style="height: 170px; opacity: 0.85;">
-                        <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">8 videos</span>
+                        <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-2 px-2 py-1 text-warning border border-warning small">7 videos</span>
                     </div>
                     <h5 class="card-title fw-bold text-white mb-3 fs-6" style="min-height: 40px;">අවකලනය <span id="badge-අවකලනය" class="badge bg-danger ms-2" style="font-size: 0.7rem;">PAID</span></h5>
                     <div id="btn-container-අවකලනය">
@@ -783,8 +789,8 @@ h4:has(.fa-crosshairs) {
 
     // Live checkers (Paid Classes)
     listenToCourseStatus('සීමාව', 'playlist -2.html', 'images/thumb-3.png', '4 videos');
-    listenToCourseStatus('අවකලනය', 'playlist -3.html', 'images/thumb-4.png', '8 videos');
-    listenToCourseStatus('sheni', 'playlist -12.html', 'images/thumb-4.png', '1 videos');
+    listenToCourseStatus('අවකලනය', 'playlist -3.html', 'images/thumb-4.png', '7 videos');
+    listenToCourseStatus('sheni', 'playlist -12.html', 'images/thumb-4.png', '7 videos');
     listenToCourseStatus('දෛශික', 'playlist -7.html', 'images/thumb-7.png', '7 videos'); // <-- දෛශික add කළා
 
     function enrollClass(className, thumbImg, videoCount, playlistUrl) {
