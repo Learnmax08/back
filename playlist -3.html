@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <meta name="description" content="NexusPlatform | Advanced Level Combined Maths Online Learning Platform Developed By Single Developers. Hotline Contact : 0718725619">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
- <link rel="icon" type="image/png" sizes="32x32" href="N.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="N.png">
     <link rel="icon" type="image/png" sizes="16x16" href="N.png">
     <link rel="manifest" href="https://cdn.cmwithmn.lk/web-data/Static/favicon/site.webmanifest">
     <link rel="mask-icon" href="https://cdn.cmwithmn.lk/web-data/Static/favicon/safari-pinned-tab.svg" color="#5bbad5">
@@ -51,51 +51,113 @@
         color: #c9d1d9 !important;
     }
     
-    /* --- 🛠️ Premium Seamless Sidebar Styling (Fixed, No Scrollbar) --- */
-    .sider {
-        position: fixed !important;
-        top: 70px !important;
-        left: 0 !important;
-        width: 90px !important;
-        height: calc(100vh - 70px) !important;
-        z-index: 1000;
-        background: rgba(13, 17, 23, 0.85) !important;
-        border-right: 1px solid #21262d;
-        backdrop-filter: blur(10px);
-        transition: all 0.3s ease-in-out; 
-        overflow: hidden !important; 
+    /* --- 🛠️ Desktop Sidebar Styling (PC වලට විතරයි) --- */
+    @media (min-width: 768px) {
+        .sider {
+            position: fixed !important;
+            top: 70px !important;
+            left: 0 !important;
+            width: 90px !important;
+            height: calc(100vh - 70px) !important;
+            z-index: 1000;
+            background: rgba(13, 17, 23, 0.85) !important;
+            border-right: 1px solid #21262d;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease-in-out; 
+            overflow: hidden !important; 
+        }
+        #content-wrapper {
+            margin-left: 90px !important;
+            padding-bottom: 20px;
+        }
+        .sider__main_content {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            height: 100% !important;
+            padding: 10px 0 !important;
+            box-sizing: border-box !important;
+        }
+        .sider__btn__container {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 1.2vh !important; 
+            justify-content: flex-start !important;
+        }
+        .sider__main_content .nav__link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            margin: 0 auto !important;
+            border-radius: 12px;
+            background: #161b22;
+            border: 1px solid #30363d;
+            position: relative;
+            transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                        border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                        box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .sider__main_content .nav__link .nav__name {
+            display: none; 
+        }
     }
 
-    .sider__main_content {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-        height: 100% !important;
-        padding: 10px 0 !important;
-        box-sizing: border-box !important;
-    }
-
-    .sider__btn__container {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 1.2vh !important; 
-        justify-content: flex-start !important;
-    }
-
-    .sider__main_content .nav__link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 50px;
-        height: 50px;
-        margin: 0 auto !important;
-        border-radius: 12px;
-        background: #161b22;
-        border: 1px solid #30363d;
-        position: relative;
-        transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                    border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                    box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* --- 📱 iOS Style Premium Bottom Navigation (මොබයිල් ෆෝන් වලට විතරයි) --- */
+    @media (max-width: 767.98px) {
+        .sider {
+            position: fixed !important;
+            bottom: 15px !important; /* යටින් පොඩ්ඩක් ඉස්සිලා තියෙන්න iOS වගේ */
+            left: 5% !important;
+            right: 5% !important;
+            width: 90% !important;
+            height: 65px !important;
+            z-index: 2000;
+            background: rgba(13, 17, 23, 0.85) !important;
+            border: 1px solid #21262d;
+            border-radius: 20px !important; /* Curved corners */
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5) !important;
+        }
+        .sider__main_content {
+            height: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-around !important;
+            padding: 0 10px !important;
+        }
+        .sider__btn__container {
+            display: flex !important;
+            flex-direction: row !important; /* හරහට Icon හිටින්න */
+            justify-content: space-around !important;
+            width: 85% !important;
+            gap: 0 !important;
+        }
+        .nav__bootom {
+            width: 15% !important;
+            display: flex !important;
+            justify-content: center !important;
+        }
+        .sider__main_content .nav__link {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 45px !important;
+            height: 45px !important;
+            border-radius: 10px !important;
+            background: transparent !important;
+            border: none !important;
+            transition: all 0.3s ease;
+        }
+        .sider__main_content .nav__link .nav__name {
+            display: none; /* Icon එක විතරක් පෙන්වන්න ඉඩ මදි නිසා */
+        }
+        #content-wrapper {
+            margin-left: 0px !important;
+            padding-bottom: 100px !important; /* වීඩියෝ Bar එකෙන් වැහෙන්නේ නැති වෙන්න */
+        }
     }
     
     .sider__main_content .nav__link i {
@@ -104,21 +166,12 @@
         transition: color 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     
-    .sider__main_content .nav__link .nav__name {
-        display: none; 
-    }
-
     .sider__main_content .nav__link:hover i,
     .sider__main_content .nav__link.selected i {
         transform: scale(1.12);
     }
 
-    #content-wrapper {
-        margin-left: 90px !important;
-        transition: margin-left 0.3s ease-in-out !important;
-    }
-
-    /* --- RGB Glow Effects --- */
+    /* --- RGB Glow Effects (iOS & Desktop දෙකටම පොදුවේ ලස්සනට වදිනවා) --- */
     .sider__main_content .nav__link.sider__blue:hover,
     .sider__main_content .nav__link.sider__blue.selected {
         border-color: #00d2ff !important;
@@ -213,7 +266,7 @@
         letter-spacing: 0.5px;
     }
 
-    /* --- 🆕 🎨 🎮 Premium Playlist & Video Cards Styling --- */
+    /* --- Premium Playlist & Video Cards Styling --- */
     .playlist-details .row-container {
         background: #11161d !important;
         border: 1px solid #21262d !important;
@@ -241,16 +294,6 @@
         font-size: 0.8rem;
         border-radius: 6px;
         font-weight: 600;
-    }
-    
-    .playlist-details .save-playlist button {
-        background: transparent;
-        border: none;
-        color: #00d2ff;
-        font-weight: 600;
-    }
-    .playlist-details .save-playlist button i {
-        margin-right: 5px;
     }
     
     .playlist-details .tutor {
@@ -304,7 +347,7 @@
         margin-bottom: 0;
     }
 
-    /* Playlist List Row Items Styling */
+    /* Playlist Sidebar Box Styling */
     .playlist-sidebar-box {
         background-color: #161b22;
         border: 1px solid #30363d;
@@ -347,20 +390,14 @@
         text-overflow: ellipsis;
     }
     
-    /* Active Item Effect (Glow Green Border) */
     .custom-playlist-item.active {
         background-color: rgba(0, 230, 118, 0.03);
         border-color: #00e676;
         box-shadow: 0 0 12px rgba(0, 230, 118, 0.15);
     }
-    .custom-playlist-item.active i {
-        color: #00e676;
-    }
-    .custom-playlist-item.active span {
-        color: #fff;
-    }
+    .custom-playlist-item.active i { color: #00e676; }
+    .custom-playlist-item.active span { color: #fff; }
 
-    /* General Styling */
     .heading {
         color: #ffffff;
         font-size: 1.5rem;
@@ -369,97 +406,25 @@
         border-left: 4px solid #00d2ff;
         padding-left: 12px;
     }
-    .card.shadow {
-        background: #161b22 !important;
-        border: 1px solid #30363d !important;
-        border-radius: 14px !important;
-        overflow: hidden;
-    }
-    .card-header {
-        background: rgba(22, 27, 34, 0.7) !important;
-        border-bottom: 1px solid #30363d !important;
-    }
-    .text-dark { color: #ffffff !important; }
-    .text-primary { color: #00d2ff !important; }
-    
-    .avatar-glow {
-        border: 3px solid #00d2ff;
-        box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
-        padding: 3px;
-        background: #0d1117;
-    }
-    .form-control, .custom-select {
-        background-color: #0d1117 !important;
-        border: 1px solid #30363d !important;
-        color: #ffffff !important;
-        border-radius: 8px;
-        height: 45px;
-    }
-    .form-control:focus, .custom-select:focus {
-        border-color: #00d2ff !important;
-        box-shadow: 0 0 10px rgba(0, 210, 255, 0.3) !important;
-    }
-    .form-label {
-        color: #8b949e !important;
-        font-weight: 600;
-    }
-    .form-label i {
-        color: #00d2ff;
-        margin-right: 8px;
-    }
     .btn-primary {
         background: linear-gradient(135deg, #00d2ff, #0066ff) !important;
         border: none !important;
         font-weight: 700;
-        letter-spacing: 0.5px;
         box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
-        transition: all 0.3s ease;
-    }
-    .btn-primary:hover {
-        box-shadow: 0 4px 20px rgba(0, 210, 255, 0.5);
-        transform: translateY(-1px);
-    }
-    .btn-blue {
-        background-color: #1f6feb !important;
-        color: #ffffff !important;
-        border: none;
     }
     .btn-light {
         background-color: #21262d !important;
         border: 1px solid #30363d !important;
         color: #c9d1d9 !important;
     }
-    .btn-light:hover {
-        background-color: #30363d !important;
-        color: #ffffff !important;
-    }
     .modal-content {
         background-color: #161b22 !important;
         border: 1px solid #00e676 !important;
-        box-shadow: 0 0 25px rgba(0, 230, 118, 0.2);
-        color: #ffffff;
-    }
-    .modal-header { border-bottom: 1px solid #30363d; }
-    .modal-footer { border-top: 1px solid #30363d; }
-
-    @media (max-height: 620px) {
-        .sider__main_content .nav__link {
-            width: 44px !important;
-            height: 44px !important;
-            border-radius: 10px !important;
-        }
-        .sider__main_content .nav__link i {
-            font-size: 1.1rem !important;
-        }
-        .sider__btn__container {
-            gap: 0.8vh !important;
-        }
     }
 </style>
 </head>
 <body>
     
-    .
     <div class="sidebarbg" id="sidebarbg">
         <nav class="sider bg-blur" id="sider__menu">
             <div class="sider__main_content">
@@ -535,7 +500,6 @@
                     <div class="row-container">
                         <div class="row align-items-center">
                             <div class="col-md-5 column">
-                                .
                                 <div class="thumb">
                                     <img src="images/thumb-1.png" alt="">
                                     <span>4 videos</span>
@@ -596,19 +560,29 @@
                                         <span>අවකලනය (part 04)</span>
                                     </div>
 
-                                    <div class="custom-playlist-item" data-embed-id="NtS_4AFjQG0" data-title="අවකලනය (part 02)">
+                                    <div class="custom-playlist-item" data-embed-id="NtS_4AFjQG0" data-title="අවකලනය (part 05)">
                                         <i class="fas fa-play"></i>
                                         <span>අවකලනය (part 05)</span>
                                     </div>
 
-                                    <div class="custom-playlist-item" data-embed-id="CT_rX_EfcCA" data-title="අවකලනය (part 03)">
+                                    <div class="custom-playlist-item" data-embed-id="CT_rX_EfcCA" data-title="අවකලනය (part 06)">
                                         <i class="fas fa-play"></i>
                                         <span>අවකලනය (part 06)</span>
                                     </div>
 
-                                    <div class="custom-playlist-item" data-embed-id="ztr8kWDXQ8k" data-title="අවකලනය (part 04)">
+                                    <div class="custom-playlist-item" data-embed-id="ztr8kWDXQ8k" data-title="අවකලනය (part 07)">
                                         <i class="fas fa-play"></i>
                                         <span>අවකලනය (part 07)</span>
+                                    </div>
+
+                                     <div class="custom-playlist-item" data-embed-id="6HyUwDc9-7c" data-title="අවකලනය (part 08)">
+                                        <i class="fas fa-play"></i>
+                                        <span>අවකලනය (part 08)</span>
+                                    </div>
+
+                                     <div class="custom-playlist-item" data-embed-id="xhga1LnHUIk" data-title="අවකලනය (part 09)">
+                                        <i class="fas fa-play"></i>
+                                        <span>අවකලනය (part 09)</span>
                                     </div>
 
                                 </div>
@@ -654,41 +628,35 @@
     <script>
         document.querySelectorAll('.custom-playlist-item').forEach(element => {
             element.addEventListener('click', function() {
-                // කලින් active වෙලා තිබ්බ item එකේ active class එක අයින් කරනවා
                 const currentActive = document.querySelector('.custom-playlist-item.active');
                 if(currentActive) {
                     currentActive.classList.remove('active');
                 }
                 
-                // ක්ලික් කරපු item එක active කරනවා
                 this.classList.add('active');
 
-                // ක්ලික් කරපු වීඩියෝ එකේ YouTube Video ID එක සහ මාතෘකාව (Title) ලබා ගන්නවා
                 const embedId = this.getAttribute('data-embed-id');
                 const videoTitle = this.getAttribute('data-title');
 
-                // Iframe එක මගින් වෙබ් එක ඇතුලෙම වීඩියෝ එක Autoplay වෙන ලෙස පූරණය කිරීම
                 document.getElementById('custom-main-player').src = `https://www.youtube.com/embed/${embedId}?rel=0&autoplay=1`;
                 document.getElementById('custom-video-title').innerText = videoTitle;
             });
         });
-          // 🛡️ Right-Click බ්ලොක් කිරීම
-document.addEventListener('contextmenu', event => event.preventDefault());
 
-// 🛡️ Keyboard Shortcuts (F12, Ctrl+U, Ctrl+Shift+I, Ctrl+Shift+J) බ්ලොක් කිරීම
-document.addEventListener('keydown', function (e) {
-    // F12 බ්ලොක් කිරීම
-    if (e.key === "F12") {
-        e.preventDefault();
-        return false;
-    }
-    // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+Shift+C බ්ලොක් කිරීම
-    if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 'c' || e.key === 'C'))) {
-        e.preventDefault();
-        return false;
-    }
-});
+        // 🛡️ Right-Click බ්ලොක් කිරීම
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // 🛡️ Keyboard Shortcuts බ්ලොක් කිරීම
+        document.addEventListener('keydown', function (e) {
+            if (e.key === "F12") {
+                e.preventDefault();
+                return false;
+            }
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 'c' || e.key === 'C'))) {
+                e.preventDefault();
+                return false;
+            }
+        });
     </script>
- .
 </body>
 </html>
